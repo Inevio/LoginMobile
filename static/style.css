@@ -21,6 +21,7 @@
   margin: 40px 20px 0 20px;
   text-align: center;
   line-height: 30px;
+  position: relative;
 }
 
 .login-buttons{
@@ -35,8 +36,14 @@
   outline: none;
 }
 
-.login-buttons .ui-btn.accept{
+.login-buttons .ui-btn.sign-up{
   margin-right: 21px;
+}
+
+.login-buttons .ui-btn.accept:active{
+  background-color: #3d903b;
+  background-image: none;
+  box-shadow: none;
 }
 
 .login-buttons .ui-btn.transparent{
@@ -45,8 +52,39 @@
   border: 2px solid #a9a9a7;
   background-color: transparent;
   background-image: none;
+  float: right;
 }
 
 .login-buttons .ui-btn.transparent span{
   color: #fefefe;
+}
+
+.more{
+  width: 167px;
+	height: 42px;
+	-webkit-border-radius: 12px 12px 0 0;
+	-moz-border-radius: 12px 12px 0 0;
+	border-radius: 12px 12px 0 0;
+	background-color: rgba(36, 41, 47, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: ~"calc(50% - 83px)";
+}
+
+.more figure{
+  float:left;
+  width: 14px;
+  height: 8px;
+  background-image: url("@static/arrow.png");
+  display: inline-block;
+  background-size: cover;
+  margin: 20px 19px 0px 19px;
+}
+
+.more span{
+  float: left;
+  font-family: Lato;
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 16px;
 }
