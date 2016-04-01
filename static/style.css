@@ -1,4 +1,29 @@
 .ui-window-content{
   width: 100%;
   height: ~'calc(100% - 41px)';
+  background-image: url("@static/login.png");
+  background-position: right;
+  background-size: cover;
+}
+
+.inevio-logo{
+  background-image: url("@static/logo.png");
+  width: 251px;
+  height: 49px;
+  background-size: cover;
+  margin: 200px auto 0 auto;
+}
+
+.slogan{
+  font-family: Lato;
+  font-size: 17px;
+  color: #fefefe;
+  margin: 40px 20px 0 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.login-buttons{
+  margin: 100px auto 0 auto;
+  width: 203px;
 }
