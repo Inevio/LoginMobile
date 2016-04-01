@@ -30,6 +30,6 @@ win.on('click', '.sign-in', function(){
 
   $('.inevio-logo').transition({
     'margin-top': '156px'
-  },600,function(){});
+  },800,function(){});
 
 })
