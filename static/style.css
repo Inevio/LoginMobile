@@ -60,6 +60,49 @@
   color: #fefefe;
 }
 
+.inputs{
+  width: 312px;
+  position: relative;
+  left: 100%;
+  display: none;
+  margin: 0px auto 0px auto;
+}
+
+.login.inputs{
+  margin-top: 66px;
+}
+
+.register.inputs{
+  margin-top: 60px;
+}
+
+.inputs .input{
+  width: 308px;
+  height: 54px;
+  border: 2px solid #a9a9a7;
+  border-radius: 58px;
+  background-color: transparent;
+  background-image: none;
+}
+
+.inputs input{
+  background-color: transparent;
+  margin: 17px 32px 0px 32px;
+  width: ~'calc(100% - 64px)';
+  font-size: 20px;
+  font-family: Lato;
+  color: #ffffff;
+}
+
+.login.inputs .login-input input:-webkit-autofill{
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.inputs .username, .register.inputs .email{
+  margin-bottom: 35px;
+}
+
 .more{
   width: 167px;
 	height: 42px;
