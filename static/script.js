@@ -36,6 +36,7 @@ win.on('click', '.sign-in', function(){
   },600,function(){
     $(this).addClass('accept');
     $(this).removeClass('transparent');
+    $('.forgot').show();
   });
 
   $('.more').transition({
@@ -43,6 +44,8 @@ win.on('click', '.sign-in', function(){
   },300, function(){
     $(this).hide();
   });
+
+
 
 })
 
