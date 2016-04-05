@@ -11,7 +11,7 @@
   width: 251px;
   height: 49px;
   background-size: cover;
-  margin: 200px auto 0 auto;
+  margin: 200px auto 40px auto;
 }
 
 .passwd-recover{
@@ -26,11 +26,17 @@
   text-align: center;
 }
 
+.content-container{
+  height: 60px;
+  display: inline-block;
+  width: 100%;
+}
+
 .slogan{
   font-family: Lato;
   font-size: 17px;
   color: #fefefe;
-  margin: 40px 20px 0 20px;
+  margin: 0px 20px 0 20px;
   text-align: center;
   line-height: 30px;
   position: relative;
@@ -80,14 +86,6 @@
   margin: 0px auto 0px auto;
 }
 
-.login.inputs{
-  margin-top: 66px;
-}
-
-.register.inputs{
-  margin-top: 60px;
-}
-
 .inputs .input{
   width: 308px;
   height: 54px;
@@ -106,9 +104,8 @@
   color: #ffffff;
 }
 
-.login.inputs .login-input input:-webkit-autofill{
-  background-color: transparent !important;
-  color: #ffffff !important;
+.login.inputs input:-webkit-autofill{
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 .inputs .username, .register.inputs .email{
