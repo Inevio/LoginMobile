@@ -101,7 +101,9 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.forgot', function(){
 
-  $('.passwd-recover').show();
+  $('.passwd-recover').show().transition({
+    'margin-bottom': '86px'
+  },300);
 
   $('.inputs.login').transition({},300,function(){
     $('.forgot').hide();
