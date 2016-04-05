@@ -22,7 +22,7 @@ win.on('click', '.sign-in', function(){
   contentContainer.transition({
     'height' : '151px',
     'margin-bottom' : '15px',
-    'margin-top' : '22px'
+    'margin-top' : '38px'
   },300);
 
   $('.sign-up').css({'margin-right':'0px'}).transition({
@@ -73,7 +73,7 @@ win.on('click', '.sign-in', function(){
   contentContainer.transition({
     'height' : '244px',
     'margin-bottom' : '0px',
-    'margin-top' : '16px'
+    'margin-top' : '32px'
   },300);
 
   $('.sign-in').transition({
@@ -97,68 +97,33 @@ win.on('click', '.sign-in', function(){
     $(this).hide();
   });
 
-  /*$('.inevio-logo').transition({
-    'margin-top': '156px'
-  },600,function(){});
-
-  $('.slogan').transition({
-    'left': '-100%'
-  },300,function(){
-
-    $(this).hide();
-    $('.register.inputs').css('display','block').transition({
-      'left' : '0%'
-    },300);
-
-  });
-
-  $('.sign-in').transition({
-    'opacity': '0'
-  },100,function(){
-    $(this).hide();
-  });
-
-  $(this).transition({
-    'width': '317px',
-    'margin-right':'0px',
-    'background-color': '#69a55a',
-    'border': 'none',
-    'height': '58px',
-    'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)'
-  },600,function(){
-    $('.login-buttons').css('margin-top','58px');
-  });
-
-  $('.more').transition({
-    'opacity' : '0'
-  },300, function(){
-    $(this).hide();
-  });*/
-
 })
 
 .on('click', '.forgot', function(){
 
-  /*$('.passwd-recover').show();
+  $('.passwd-recover').show();
 
-  $('.inputs.login').transition({
-    'margin-top':'83px',
-    'height':'93px'
-  },600,function(){
+  $('.inputs.login').transition({},300,function(){
     $('.forgot').hide();
     $(this).find('.username').removeClass('username').addClass('email').find('input').attr('placeholder','Email').val('' );
   });
 
+  contentContainer.transition({
+    'height' : '157px',
+    'margin-bottom' : '0px',
+    'margin-top' : '32px'
+  },300);
+
   $('.inputs.login .password').transition({
     'opacity':'0'
-  },600,function(){
+  },300,function(){
     $(this).hide();
   });
 
   $('.login-buttons').transition({
     'margin-top':'48px'
-  },600,function(){
+  },300,function(){
     $(this).find('.sign-in span').text('Recover');
-  });*/
+  });
 
 });

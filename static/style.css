@@ -11,18 +11,17 @@
   width: 251px;
   height: 49px;
   background-size: cover;
-  margin: 200px auto 40px auto;
+  margin: 200px auto 24px auto;
 }
 
 .passwd-recover{
   display: none;
-  position: relative;
-  top: 20px;
   font-family: Lato;
   font-size: 15px;
   color: #ffffff;
   margin-left:auto;
   margin-right:auto;
+  margin-bottom: 86px;
   text-align: center;
 }
 
@@ -30,6 +29,7 @@
   height: 60px;
   display: inline-block;
   width: 100%;
+  margin-top: 16px;
   margin-bottom: 83px;
 }
 
