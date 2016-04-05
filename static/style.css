@@ -30,6 +30,7 @@
   height: 60px;
   display: inline-block;
   width: 100%;
+  margin-bottom: 83px;
 }
 
 .slogan{
@@ -44,7 +45,7 @@
 }
 
 .login-buttons{
-  margin: 100px auto 0 auto;
+  margin: 58px auto 0 auto;
   width: 314px;
 }
 
