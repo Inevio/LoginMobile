@@ -38,7 +38,7 @@ win.on('click', '.sign-in', function(){
     'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)',
     'background-image' : 'linear-gradient(to top, #5cb05a, #6ebd6c)'
   },500,function(){
-    $(this).addClass('accept');
+    $(this).addClass('accept').css('float','right');
     $(this).removeClass('transparent');
     $('.forgot').show();
   });
@@ -161,7 +161,6 @@ win.on('click', '.sign-in', function(){
 
       $(this).addClass('transparent');
       $(this).removeClass('accept').removeAttr( 'style' );
-      $('.forgot').hide();
 
     });
 
@@ -174,6 +173,8 @@ win.on('click', '.sign-in', function(){
     },500, function(){
       $(this).hide();
     });
+
+    $('.forgot').hide();
 
   }else if( loginStage == 2 ){
 
