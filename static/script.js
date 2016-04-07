@@ -59,6 +59,8 @@ win.on('click', '.sign-in', function(){
       'opacity' : '1'
     },500);
 
+  }else if( loginStage == 1 ){
+    $('.inputs-login .input').addClass('error');
   }
 
 })
@@ -131,19 +133,26 @@ win.on('click', '.sign-in', function(){
     'opacity':'0'
   },500,function(){
 
-    loginStage = 3;
     $(this).hide();
     $('.forgot').hide();
     $('.inputs.login .username').removeClass('username').addClass('email').find('input').attr('placeholder','Email').val('');
     $('.login-buttons .sign-in').addClass('recover').find('span').text('Recover');
+    loginStage = 3;
 
   });
 
 })
 
-.on('click', '.forgot', function(){
+.on('click', '.recover', function(){
 
-  
+  console.log('recover');
+  if( $(this).val() === 'a' ){
+
+    $('.login.inputs .email').addClass('error');
+
+  }else{
+    $('.login.inputs .email').addClass('error');
+  }
 
 })
 
@@ -252,7 +261,7 @@ win.on('click', '.sign-in', function(){
 
       $('.forgot').show();
       $('.inputs.login .email').addClass('username').removeClass('email').find('input').attr('placeholder','Username').val('');
-      $('login-buttons .sign-in').removeClass('recover').find('.span').text('Sign in');
+      $('.login-buttons .sign-in').removeClass('recover').find('span').text('Sign in');
       loginStage = 1;
 
     });
