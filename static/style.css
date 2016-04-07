@@ -60,6 +60,9 @@
   margin-left:auto;
   margin-right:auto;
   text-align: center;
+  margin-top: 24px;
+  opacity: 0;
+  height: 0px;
 }
 
 .slogan{
@@ -143,6 +146,10 @@
   background-image: none;
 }
 
+.inputs .input.error{
+  border: 2px solid #e85c5c;
+}
+
 .inputs input{
   background-color: transparent;
   margin: 17px 32px 0px 32px;
@@ -156,7 +163,7 @@
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.inputs .username, .register.inputs .email{
+.inputs .username, .inputs .email{
   margin-bottom: 35px;
 }
 
@@ -202,4 +209,5 @@
   left: 0;
   right: 0;
   text-align: center;
+  cursor: pointer;
 }

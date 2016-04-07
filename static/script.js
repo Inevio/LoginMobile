@@ -5,14 +5,15 @@ var initialMarginTopLogo = $('.inevio-logo').css('margin-top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
-var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success
+var recoverMargin = $('.passwd-recover').css('margin-top');
+var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 
 win.on('click', '.sign-in', function(){
 
-  loginStage = 1;
+  loginStage = -1;
   $('.inevio-logo').transition({
     'margin-top': '0px',
-  },500,function(){});
+  },500);
 
   $('.slogan').transition({
     'left': '-100%'
@@ -38,9 +39,12 @@ win.on('click', '.sign-in', function(){
     'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)',
     'background-image' : 'linear-gradient(to top, #5cb05a, #6ebd6c)'
   },500,function(){
+
     $(this).addClass('accept').css('float','right');
     $(this).removeClass('transparent');
     $('.forgot').show();
+    loginStage = 1;
+
   });
 
   $('.more').transition({
@@ -57,10 +61,10 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.sign-up', function(){
 
-  loginStage = 2;
+  loginStage = -1;
   $('.inevio-logo').transition({
     'margin-top': '0px',
-  },500,function(){});
+  },500);
 
   $('.slogan').transition({
     'left': '-100%'
@@ -86,12 +90,15 @@ win.on('click', '.sign-in', function(){
     'border': 'none',
     'height': '58px',
     'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)'
-  },500,function(){});
+  },500);
 
   $('.more').transition({
     'opacity' : '0'
   },500, function(){
+
     $(this).hide();
+    loginStage = 2;
+
   });
 
   $('.back-button').show().transition({
@@ -102,32 +109,31 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.forgot', function(){
 
-  /*$('.passwd-recover').show().transition({
-    'margin-bottom': '86px'
-  },300);
-
-  $('.inputs.login').transition({},300,function(){
-    $('.forgot').hide();
-    $(this).find('.username').removeClass('username').addClass('email').find('input').attr('placeholder','Email').val('' );
-  });
+  loginStage = -1;
+  $('.passwd-recover').css('margin-top','0').show().transition({
+    'opacity': '1',
+    'margin-top': recoverMargin
+  },500);
 
   contentContainer.transition({
-    'height' : '157px',
-    'margin-bottom' : '0px',
-    'margin-top' : '32px'
-  },300);
+    'height' : '360px'
+  },500);
 
   $('.inputs.login .password').transition({
     'opacity':'0'
-  },300,function(){
+  },500,function(){
+
+    loginStage = 3;
     $(this).hide();
+    $('.forgot').hide();
+    $('.inputs.login .username').removeClass('username').addClass('email').find('input').attr('placeholder','Email').val('');
+
   });
 
   $('.login-buttons').transition({
-    'margin-top':'48px'
-  },300,function(){
+  },500,function(){
     $(this).find('.sign-in span').text('Recover');
-  });*/
+  });
 
 })
 
@@ -135,10 +141,10 @@ win.on('click', '.sign-in', function(){
 
   if( loginStage == 1 ){
 
-    loginStage = 0;
+    loginStage = -1;
     $('.inevio-logo').transition({
       'margin-top': initialMarginTopLogo,
-    },500,function(){});
+    },500);
 
     $('.login.inputs').transition({
       'left': '100%'
@@ -153,14 +159,12 @@ win.on('click', '.sign-in', function(){
 
     $('.sign-in').css('float','right').transition({
       'width': initialButtonWidth,
-    },250,function(){
+    },500,function(){
 
-      $('.sign-up').css( 'margin-right', initialMarginRightBtn ).show().transition({
-        'opacity': '1'
-      },250);
-
+      $('.sign-up').css( 'margin-right', initialMarginRightBtn ).show().css('opacity','1');
       $(this).addClass('transparent');
       $(this).removeClass('accept').removeAttr( 'style' );
+      loginStage = 0;
 
     });
 
@@ -178,7 +182,7 @@ win.on('click', '.sign-in', function(){
 
   }else if( loginStage == 2 ){
 
-    loginStage = 0;
+    loginStage = -1;
     $('.inevio-logo').transition({
       'margin-top': initialMarginTopLogo,
     },500,function(){});
@@ -204,18 +208,49 @@ win.on('click', '.sign-in', function(){
 
       //$(this).removeAttr( 'style' );
       $('.sign-in').show();
+      loginStage = 0;
 
     });
 
-    $('.more').transition({
+    $('.more').show().transition({
+      'opacity' : '1'
+    },500);
+
+    $('.back-button').transition({
       'opacity' : '0'
     },500, function(){
       $(this).hide();
     });
 
-    $('.back-button').show().transition({
-      'opacity' : '1'
+  }else if( loginStage == 3 ){
+
+    loginStage = -1;
+    $('.passwd-recover').transition({
+      'opacity': '0',
+      'margin-top': '0'
+    },500,function(){
+      $(this).hide();
+    });
+
+    contentContainer.transition({
+      'height' : initialHeight
     },500);
+
+    $('.inputs.login .password').show().transition({
+      'opacity':'1'
+    },500,function(){
+
+      $('.forgot').show();
+      $('.inputs.login .email').addClass('username').removeClass('email').find('input').attr('placeholder','Username').val('');
+      loginStage = 1;
+
+    });
+
+    $('.login-buttons').transition({
+    },500,function(){
+      $(this).find('.sign-in span').text('Sign in');
+    });
+
 
   }
 
