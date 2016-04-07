@@ -10,100 +10,108 @@ var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-succe
 
 win.on('click', '.sign-in', function(){
 
-  loginStage = -1;
-  $('.inevio-logo').transition({
-    'margin-top': '0px',
-  },500);
+  if( loginStage == 0 ){
 
-  $('.slogan').transition({
-    'left': '-100%'
-  },250,function(){
+    loginStage = -1;
+    $('.inevio-logo').transition({
+      'margin-top': '0px',
+    },500);
 
-    $(this).hide();
-    $('.login.inputs').show().transition({
-      'left' : '0%'
-    },250);
+    $('.slogan').transition({
+      'left': '-100%'
+    },250,function(){
 
-  });
+      $(this).hide();
+      $('.login.inputs').show().transition({
+        'left' : '0%'
+      },250);
 
-  $('.sign-up').css({'margin-right':'0px'}).transition({
-    'opacity': '0'
-  },50,function(){
-    $(this).hide();
-  });
+    });
 
-  $(this).transition({
-    'width': '317px',
-    'background-color': '#69a55a',
-    'border': 'none',
-    'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)',
-    'background-image' : 'linear-gradient(to top, #5cb05a, #6ebd6c)'
-  },500,function(){
+    $('.sign-up').css({'margin-right':'0px'}).transition({
+      'opacity': '0'
+    },50,function(){
+      $(this).hide();
+    });
 
-    $(this).addClass('accept').css('float','right');
-    $(this).removeClass('transparent');
-    $('.forgot').show();
-    loginStage = 1;
+    $(this).transition({
+      'width': '317px',
+      'background-color': '#69a55a',
+      'border': 'none',
+      'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)',
+      'background-image' : 'linear-gradient(to top, #5cb05a, #6ebd6c)'
+    },500,function(){
 
-  });
+      $(this).addClass('accept').css('float','right');
+      $(this).removeClass('transparent');
+      $('.forgot').show();
+      loginStage = 1;
 
-  $('.more').transition({
-    'opacity' : '0'
-  },500, function(){
-    $(this).hide();
-  });
+    });
 
-  $('.back-button').show().transition({
-    'opacity' : '1'
-  },500);
+    $('.more').transition({
+      'opacity' : '0'
+    },500, function(){
+      $(this).hide();
+    });
+
+    $('.back-button').show().transition({
+      'opacity' : '1'
+    },500);
+
+  }
 
 })
 
 .on('click', '.sign-up', function(){
 
-  loginStage = -1;
-  $('.inevio-logo').transition({
-    'margin-top': '0px',
-  },500);
+  if( loginStage == 0 ){
 
-  $('.slogan').transition({
-    'left': '-100%'
-  },250,function(){
+    loginStage = -1;
+    $('.inevio-logo').transition({
+      'margin-top': '0px',
+    },500);
 
-    $(this).hide();
-    $('.inputs.register').show().transition({
-      'left' : '0%'
-    },250);
+    $('.slogan').transition({
+      'left': '-100%'
+    },250,function(){
 
-  });
+      $(this).hide();
+      $('.inputs.register').show().transition({
+        'left' : '0%'
+      },250);
 
-  contentContainer.transition({
-    'height' : initialHeight + 73
-  },500);
+    });
 
-  $('.sign-in').hide();
+    contentContainer.transition({
+      'height' : initialHeight + 73
+    },500);
 
-  $(this).transition({
-    'width': '317px',
-    'margin-right':'0px',
-    'background-color': '#69a55a',
-    'border': 'none',
-    'height': '58px',
-    'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)'
-  },500);
+    $('.sign-in').hide();
 
-  $('.more').transition({
-    'opacity' : '0'
-  },500, function(){
+    $(this).transition({
+      'width': '317px',
+      'margin-right':'0px',
+      'background-color': '#69a55a',
+      'border': 'none',
+      'height': '58px',
+      'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)'
+    },500);
 
-    $(this).hide();
-    loginStage = 2;
+    $('.more').transition({
+      'opacity' : '0'
+    },500, function(){
 
-  });
+      $(this).hide();
+      loginStage = 2;
 
-  $('.back-button').show().transition({
-    'opacity' : '1'
-  },500);
+    });
+
+    $('.back-button').show().transition({
+      'opacity' : '1'
+    },500);
+
+  }
 
 })
 
@@ -127,13 +135,15 @@ win.on('click', '.sign-in', function(){
     $(this).hide();
     $('.forgot').hide();
     $('.inputs.login .username').removeClass('username').addClass('email').find('input').attr('placeholder','Email').val('');
+    $('.login-buttons .sign-in').addClass('recover').find('span').text('Recover');
 
   });
 
-  $('.login-buttons').transition({
-  },500,function(){
-    $(this).find('.sign-in span').text('Recover');
-  });
+})
+
+.on('click', '.forgot', function(){
+
+  
 
 })
 
@@ -242,14 +252,12 @@ win.on('click', '.sign-in', function(){
 
       $('.forgot').show();
       $('.inputs.login .email').addClass('username').removeClass('email').find('input').attr('placeholder','Username').val('');
+      $('login-buttons .sign-in').removeClass('recover').find('.span').text('Sign in');
       loginStage = 1;
 
     });
 
-    $('.login-buttons').transition({
-    },500,function(){
-      $(this).find('.sign-in span').text('Sign in');
-    });
+
 
 
   }

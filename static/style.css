@@ -159,6 +159,19 @@
   color: #ffffff;
 }
 
+.inputs input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #ffffff;
+}
+.inputs input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ffffff;
+}
+.inputs input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ffffff;
+}
+.inputs input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
 .login.inputs input:-webkit-autofill{
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
