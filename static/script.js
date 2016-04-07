@@ -60,7 +60,13 @@ win.on('click', '.sign-in', function(){
     },500);
 
   }else if( loginStage == 1 ){
-    $('.inputs-login .input').addClass('error');
+
+    if( $('.login.inputs .username').find('input').val() === 'a' ){
+      $('.login.inputs .input').removeClass('error');
+    }else{
+      $('.login.inputs .input').addClass('error');
+    }
+
   }
 
 })
@@ -146,10 +152,8 @@ win.on('click', '.sign-in', function(){
 .on('click', '.recover', function(){
 
   console.log('recover');
-  if( $(this).val() === 'a' ){
-
-    $('.login.inputs .email').addClass('error');
-
+  if( $('.login.inputs .email').find('span').val() === 'a' ){
+    $('.login.inputs .email').removeClass('error');
   }else{
     $('.login.inputs .email').addClass('error');
   }
