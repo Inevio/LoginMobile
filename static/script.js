@@ -1,7 +1,7 @@
 
 var win = $(this);
 var contentContainer = $('.content-container');
-var initialMarginTopLogo = $('.inevio-logo').css('margin-top');
+var initialMarginTopLogo = $('.inevio-logo').css('top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
@@ -13,7 +13,7 @@ var back = function( stage ){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'margin-top': initialMarginTopLogo,
+      'top': initialMarginTopLogo,
     },500);
 
     $('.login.inputs').transition({
@@ -54,7 +54,7 @@ var back = function( stage ){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'margin-top': initialMarginTopLogo,
+      'top': initialMarginTopLogo,
     },500,function(){});
 
     $('.inputs.register').transition({
@@ -150,7 +150,7 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'margin-top': '0px',
+      'top': '0px',
     },500);
 
     $('.slogan').transition({
@@ -213,7 +213,7 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'margin-top': '0px',
+      'top': '0px',
     },500);
 
     $('.slogan').transition({
@@ -328,6 +328,44 @@ win.on('click', '.sign-in', function(){
 .on('click', '.back-button', function(){
 
   back( loginStage );
+
+})
+
+.on('click', '.more', function(){
+
+  $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
+
+  $('.start .inevio-logo.white').transition({
+    'margin-left' : '0px',
+    'width': '108px',
+    'height': '21px',
+    'top': '20px',
+    'left': '20px',
+    'opacity' : '0.2'
+  },1000,function(){
+    $(this).hide();
+  });
+
+  $('.start .inevio-logo.dark').transition({
+    'margin-left' : '0px',
+    'width': '108px',
+    'height': '21px',
+    'top': '20px',
+    'left': '20px',
+    'opacity' : '1'
+  },1000,function(){
+    $(this).hide();
+  });
+
+  $('.login-screen').transition({
+    'bottom' : '100%'
+  },1000,function(){
+    $(this).hide();
+  });
+
+  $('.menu-screen').show().transition({
+    'bottom' : '0'
+  },1000);
 
 })
 
