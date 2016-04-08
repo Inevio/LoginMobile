@@ -57,12 +57,16 @@
   font-family: Lato;
   font-size: 15px;
   color: #ffffff;
-  margin-left:auto;
-  margin-right:auto;
   text-align: center;
-  margin-top: 24px;
   opacity: 0;
-  height: 0px;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+}
+
+.passwd-recover.error{
+  color: #e85c5c;
 }
 
 .slogan{

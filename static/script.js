@@ -5,7 +5,6 @@ var initialMarginTopLogo = $('.inevio-logo').css('margin-top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
-var recoverMargin = $('.passwd-recover').css('margin-top');
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 
 win.on('click', '.sign-in', function(){
@@ -126,9 +125,8 @@ win.on('click', '.sign-in', function(){
 .on('click', '.forgot', function(){
 
   loginStage = -1;
-  $('.passwd-recover').css('margin-top','0').show().transition({
-    'opacity': '1',
-    'margin-top': recoverMargin
+  $('.passwd-recover').show().transition({
+    'opacity': '1'
   },500);
 
   contentContainer.transition({
@@ -155,8 +153,10 @@ win.on('click', '.sign-in', function(){
   if( $('.login.inputs .email').find('input').val() === 'a' ){
 
     loginStage = -1;
+    $('.login.inputs .email').removeClass('error');
+    $('.passwd-recover').removeClass('error').text('Recover password');
+
     $('.passwd-recover').transition({
-      'margin-top' : '0px',
       'opacity' : '0'
     },500,function(){
       $(this).hide();
@@ -183,6 +183,7 @@ win.on('click', '.sign-in', function(){
 
   }else{
     $('.login.inputs .email').addClass('error');
+    $('.passwd-recover').addClass('error').text('Email incorrecto');
   }
 
 })
@@ -276,8 +277,7 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.passwd-recover').transition({
-      'opacity': '0',
-      'margin-top': '0'
+      'opacity': '0'
     },500,function(){
       $(this).hide();
     });
@@ -301,7 +301,6 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.passwd-recover').show().transition({
-      'margin-top' : recoverMargin,
       'opacity' : '1'
     },500);
 
