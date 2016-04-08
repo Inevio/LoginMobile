@@ -334,6 +334,7 @@ win.on('click', '.sign-in', function(){
 .on('click', '.more', function(){
 
   $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
+  $('.login-screen .inevio-logo').hide();
 
   $('.start .inevio-logo.white').transition({
     'margin-left' : '0px',
@@ -344,6 +345,7 @@ win.on('click', '.sign-in', function(){
     'opacity' : '0.2'
   },1000,function(){
     $(this).hide();
+    $('.menu-screen .header figure').show();
   });
 
   $('.start .inevio-logo.dark').transition({
