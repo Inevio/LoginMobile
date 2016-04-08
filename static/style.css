@@ -7,7 +7,8 @@
 }
 
 .login-screen{
-  bottom: 0;
+  bottom: 100%;
+  display: none;
 }
 
 .back-button{
@@ -268,11 +269,59 @@
 .login-screen, .menu-screen{
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .menu-screen{
-  bottom: 100%;
-  display: none;
-  background-image: #f8f8f9;
+  bottom: 0;
+  background-color: #f8f8f9;
+}
+
+.menu-screen .header{
+  width: 100%;
+  height: 62px;
+}
+
+.menu-screen .header figure{
+  width: 108px;
+  height: 21px;
+  background-image: url('@static/logo-dark.png');
+  background-size: cover;
+  float: left;
+  margin: 20px 0px 0px 20px;
+}
+
+.menu-screen .header span{
+  float: right;
+  font-size: 15px;
+  color: #889399;
+  cursor: pointer;
+  margin: 22px 20px 0px 0px;
+}
+
+
+.menu-screen .footer{
+  height: 72px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.menu-screen .footer .bullet{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #c3c8cc;
+  float: left;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.menu-screen .footer .bullet.active{
+  border: 2px solid #889399;
+  background-color: #889399;
+}
+
+.menu-screen .footer .bullet:last-child{
+  margin-right: 0px;
 }
