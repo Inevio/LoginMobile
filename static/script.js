@@ -7,6 +7,143 @@ var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 
+var back = function( stage ){
+
+  if( stage == 1 ){
+
+    loginStage = -1;
+    $('.inevio-logo').transition({
+      'margin-top': initialMarginTopLogo,
+    },500);
+
+    $('.login.inputs').transition({
+      'left': '100%'
+    },250,function(){
+
+      $(this).hide();
+      $('.slogan').show().transition({
+        'left' : '0%'
+      },250);
+
+    });
+
+    $('.sign-in').css('float','right').transition({
+      'width': initialButtonWidth,
+    },500,function(){
+
+      $('.sign-up').css( 'margin-right', initialMarginRightBtn ).show().css('opacity','1');
+      $(this).addClass('transparent');
+      $(this).removeClass('accept').removeAttr( 'style' );
+      loginStage = 0;
+
+    });
+
+    $('.more').show().transition({
+      'opacity' : '1'
+    },500);
+
+    $('.back-button').transition({
+      'opacity' : '0'
+    },500, function(){
+      $(this).hide();
+    });
+
+    $('.forgot').hide();
+
+  }else if( stage == 2 ){
+
+    loginStage = -1;
+    $('.inevio-logo').transition({
+      'margin-top': initialMarginTopLogo,
+    },500,function(){});
+
+    $('.inputs.register').transition({
+      'left': '100%'
+    },250,function(){
+
+      $(this).hide();
+      $('.slogan').show().transition({
+        'left' : '0%'
+      },250);
+
+    });
+
+    contentContainer.transition({
+      'height' : initialHeight
+    },500);
+
+    $('.sign-up').transition({
+      'width': initialButtonWidth
+    },500,function(){
+
+      //$(this).removeAttr( 'style' );
+      $('.sign-in').show();
+      loginStage = 0;
+
+    });
+
+    $('.more').show().transition({
+      'opacity' : '1'
+    },500);
+
+    $('.back-button').transition({
+      'opacity' : '0'
+    },500, function(){
+      $(this).hide();
+    });
+
+  }else if( stage == 3 ){
+
+    loginStage = -1;
+    $('.passwd-recover').transition({
+      'opacity': '0'
+    },500,function(){
+      $(this).hide();
+    });
+
+    contentContainer.transition({
+      'height' : initialHeight
+    },500);
+
+    $('.inputs.login .password').show().transition({
+      'opacity':'1'
+    },500,function(){
+
+      $('.forgot').show();
+      $('.inputs.login .email').addClass('username').removeClass('email').find('input').attr('placeholder','Username').val('');
+      $('.login-buttons .sign-in').removeClass('recover').find('span').text('Sign in');
+      loginStage = 1;
+
+    });
+
+  }else if( stage == 4 ){
+
+    loginStage = -1;
+    $('.passwd-recover').show().transition({
+      'opacity' : '1'
+    },500);
+
+    $('.recover-passwd-success').transition({
+      'left' : '100%'
+    },250,function(){
+
+      $(this).hide();
+      $('.inputs.login').show().transition({
+        'left' : '0'
+      },250,function(){
+        loginStage = 3;
+      });
+
+    });
+
+    $('.login-buttons').show().transition({
+      'left' : '0%'
+    },250);
+
+  }
+
+}
+
 win.on('click', '.sign-in', function(){
 
   if( loginStage == 0 ){
@@ -190,137 +327,18 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.back-button', function(){
 
-  if( loginStage == 1 ){
+  back( loginStage );
 
-    loginStage = -1;
-    $('.inevio-logo').transition({
-      'margin-top': initialMarginTopLogo,
-    },500);
+})
 
-    $('.login.inputs').transition({
-      'left': '100%'
-    },250,function(){
+.on('key', 'enter', function(){
 
-      $(this).hide();
-      $('.slogan').show().transition({
-        'left' : '0%'
-      },250);
-
-    });
-
-    $('.sign-in').css('float','right').transition({
-      'width': initialButtonWidth,
-    },500,function(){
-
-      $('.sign-up').css( 'margin-right', initialMarginRightBtn ).show().css('opacity','1');
-      $(this).addClass('transparent');
-      $(this).removeClass('accept').removeAttr( 'style' );
-      loginStage = 0;
-
-    });
-
-    $('.more').show().transition({
-      'opacity' : '1'
-    },500);
-
-    $('.back-button').transition({
-      'opacity' : '0'
-    },500, function(){
-      $(this).hide();
-    });
-
-    $('.forgot').hide();
-
-  }else if( loginStage == 2 ){
-
-    loginStage = -1;
-    $('.inevio-logo').transition({
-      'margin-top': initialMarginTopLogo,
-    },500,function(){});
-
-    $('.inputs.register').transition({
-      'left': '100%'
-    },250,function(){
-
-      $(this).hide();
-      $('.slogan').show().transition({
-        'left' : '0%'
-      },250);
-
-    });
-
-    contentContainer.transition({
-      'height' : initialHeight
-    },500);
-
-    $('.sign-up').transition({
-      'width': initialButtonWidth
-    },500,function(){
-
-      //$(this).removeAttr( 'style' );
-      $('.sign-in').show();
-      loginStage = 0;
-
-    });
-
-    $('.more').show().transition({
-      'opacity' : '1'
-    },500);
-
-    $('.back-button').transition({
-      'opacity' : '0'
-    },500, function(){
-      $(this).hide();
-    });
-
-  }else if( loginStage == 3 ){
-
-    loginStage = -1;
-    $('.passwd-recover').transition({
-      'opacity': '0'
-    },500,function(){
-      $(this).hide();
-    });
-
-    contentContainer.transition({
-      'height' : initialHeight
-    },500);
-
-    $('.inputs.login .password').show().transition({
-      'opacity':'1'
-    },500,function(){
-
-      $('.forgot').show();
-      $('.inputs.login .email').addClass('username').removeClass('email').find('input').attr('placeholder','Username').val('');
-      $('.login-buttons .sign-in').removeClass('recover').find('span').text('Sign in');
-      loginStage = 1;
-
-    });
-
-  }else if( loginStage == 4 ){
-
-    loginStage = -1;
-    $('.passwd-recover').show().transition({
-      'opacity' : '1'
-    },500);
-
-    $('.recover-passwd-success').transition({
-      'left' : '100%'
-    },250,function(){
-
-      $(this).hide();
-      $('.inputs.login').show().transition({
-        'left' : '0'
-      },250,function(){
-        loginStage = 3;
-      });
-
-    });
-
-    $('.login-buttons').show().transition({
-      'left' : '0%'
-    },250);
-
+  if( loginStage === 0 || loginStage === 1 ){
+    $('.sign-in').click();
+  }else if( loginStage === 2 ){
+    $('.sign-up').click();
+  }else if( loginStage === 3 ){
+    $('.recover').click();
   }
 
 });
