@@ -134,11 +134,11 @@ var back = function( stage ){
         loginStage = 3;
       });
 
-    });
+      $('.login-buttons').show().transition({
+        'left' : '0%'
+      },250);
 
-    $('.login-buttons').show().transition({
-      'left' : '0%'
-    },250);
+    });
 
   }
 
@@ -314,7 +314,7 @@ win.on('click', '.sign-in', function(){
 
     $('.login-buttons').transition({
       'left' : '-200%'
-    },250,function(){
+    },500,function(){
       $(this).hide();
     });
 
