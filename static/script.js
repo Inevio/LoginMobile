@@ -152,8 +152,35 @@ win.on('click', '.sign-in', function(){
 .on('click', '.recover', function(){
 
   console.log('recover');
-  if( $('.login.inputs .email').find('span').val() === 'a' ){
-    $('.login.inputs .email').removeClass('error');
+  if( $('.login.inputs .email').find('input').val() === 'a' ){
+
+    loginStage = -1;
+    $('.passwd-recover').transition({
+      'margin-top' : '0px',
+      'opacity' : '0'
+    },500,function(){
+      $(this).hide();
+    });
+
+    $('.inputs.login').transition({
+      'left' : '-100%'
+    },250,function(){
+
+      $(this).hide();
+      $('.recover-passwd-success').show().transition({
+        'left' : '0'
+      },250,function(){
+        loginStage = 4;
+      })
+
+    });
+
+    $('.login-buttons').transition({
+      'left' : '-200%'
+    },250,function(){
+      $(this).hide();
+    });
+
   }else{
     $('.login.inputs .email').addClass('error');
   }
@@ -270,8 +297,30 @@ win.on('click', '.sign-in', function(){
 
     });
 
+  }else if( loginStage == 4 ){
 
+    loginStage = -1;
+    $('.passwd-recover').show().transition({
+      'margin-top' : recoverMargin,
+      'opacity' : '1'
+    },500);
 
+    $('.recover-passwd-success').transition({
+      'left' : '100%'
+    },250,function(){
+
+      $(this).hide();
+      $('.inputs.login').show().transition({
+        'left' : '0'
+      },250,function(){
+        loginStage = 3;
+      });
+
+    });
+
+    $('.login-buttons').show().transition({
+      'left' : '0%'
+    },250);
 
   }
 

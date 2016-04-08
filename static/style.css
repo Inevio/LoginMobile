@@ -180,6 +180,35 @@
   margin-bottom: 35px;
 }
 
+.recover-passwd-success{
+  display: none;
+  position: relative;
+  left: 100%;
+  text-align: center;
+}
+
+.recover-passwd-success figure{
+  width: 138px;
+  height: 138px;
+  background-size: 138px 138px;
+  background-image: url('@static/confirmation.png');
+  display: inline-block;
+  margin-bottom: 45px;
+  margin-top: 50px;
+}
+
+.recover-passwd-success .title{
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.recover-passwd-success .text{
+  margin-top: 27px;
+  color: #d2dce2;
+  font-size: 15px;
+}
+
 .more{
   width: 167px;
 	height: 42px;
