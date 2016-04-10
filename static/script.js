@@ -172,10 +172,8 @@ win.on('click', '.sign-in', function(){
 
     $(this).transition({
       'width': '317px',
-      'background-color': '#69a55a',
-      'border': 'none',
-      'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)',
-      'background-image' : 'linear-gradient(to top, #5cb05a, #6ebd6c)'
+      'background-color': '#60b25e',
+      'border': 'none'
     },500,function(){
 
       $(this).addClass('accept').css('float','right');
@@ -236,10 +234,9 @@ win.on('click', '.sign-in', function(){
     $(this).transition({
       'width': '317px',
       'margin-right':'0px',
-      'background-color': '#69a55a',
+      'background-color': '#60b25e',
       'border': 'none',
-      'height': '58px',
-      'box-shadow': 'inset 0 -1px rgba(0, 0, 0, 0.2)'
+      'height': '58px'
     },500);
 
     $('.more').transition({

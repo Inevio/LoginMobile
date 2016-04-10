@@ -105,16 +105,25 @@
   height: 58px;
   border-radius: 58px;
   outline: none;
+  background-image: none;
 }
 
-.login-buttons .ui-btn.sign-up{
-  margin-right: 21px;
+.login-buttons .ui-btn.accept{
+  background-color: #60b25e;
+}
+
+.login-buttons .ui-btn.accept:hover{
+  box-shadow: none;
 }
 
 .login-buttons .ui-btn.accept:active{
   background-color: #3d903b;
   background-image: none;
   box-shadow: none;
+}
+
+.login-buttons .ui-btn.sign-up{
+  margin-right: 21px;
 }
 
 .login-buttons .ui-btn.transparent{
