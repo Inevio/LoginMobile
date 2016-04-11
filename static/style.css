@@ -178,7 +178,7 @@
 .inputs input{
   background-color: transparent;
   margin: 17px 32px 0px 32px;
-  width: calc(100% - 64px);
+  width: ~'calc(100% - 64px)';
   font-size: 20px;
   font-family: Lato;
   color: #ffffff;
@@ -246,7 +246,7 @@
 	background-color: rgba(36, 41, 47, 0.5);
   position: absolute;
   bottom: 0;
-  left: calc(50% - 83px);
+  left: ~'calc(50% - 83px)';
   cursor: pointer;
 }
 
@@ -322,7 +322,7 @@
 
 .menu-screen .menu-content{
   width: 100%;
-  height: calc(100% - 134px);
+  height: ~'calc(100% - 134px)';
   text-align: center;
   position: relative;
   left: 0;
@@ -331,7 +331,7 @@
 
 .menu-screen .menu-image{
   width: 100%;
-  height: calc(100% - 120px);
+  height: ~'calc(100% - 120px)';
 }
 
 .menu-screen .menu-image:before{

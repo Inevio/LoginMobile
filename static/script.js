@@ -1,5 +1,5 @@
 
-var win = $(this);
+var win = $('body');
 var contentContainer = $('.content-container');
 var initialMarginTopLogo = $('.inevio-logo').css('top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
@@ -296,6 +296,7 @@ win.on('click', '.sign-in', function(){
 
     });
 
+    console.log(initialHeight);
     contentContainer.transition({
       'height' : initialHeight + 73
     },500);
@@ -469,6 +470,8 @@ win.on('click', '.sign-in', function(){
   },1000,function(){
     $(this).hide();
   });
+
+  $('.menu-screen .header figure').hide();
 
   $('.login-screen').show().transition({
     'bottom' : '0'
