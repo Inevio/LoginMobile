@@ -17,19 +17,20 @@
 }
 
 .back-button span{
-   font-size: 17px;
-   color: #ffffff;
-   float: right;
-   cursor: pointer;
+  font-family: Lato;
+  font-size: 17px;
+  color: #ffffff;
+  float: right;
+  cursor: pointer;
 }
 
 .back-button figure{
-   width: 15px;
-   height: 16px;
-   background-image: url('@static/back.png');
-   background-size: 15px 16px;
-   display: inline-block;
-   cursor: pointer;
+  width: 15px;
+  height: 16px;
+  background-image: url('@static/back.png');
+  background-size: 15px 16px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .content-container{
@@ -226,12 +227,14 @@
   color: #ffffff;
   font-size: 19px;
   font-weight: bold;
+  font-family: Lato;
 }
 
 .recover-passwd-success .text{
   margin-top: 27px;
   color: #d2dce2;
   font-size: 15px;
+  font-family: Lato;
 }
 
 .more{
@@ -314,6 +317,7 @@
   color: #889399;
   cursor: pointer;
   margin: 22px 20px 0px 0px;
+  font-family: Lato;
 }
 
 .menu-screen .menu-content{
@@ -323,20 +327,40 @@
   position: relative;
 }
 
+.menu-screen .menu-image{
+  width: 100%;
+  height: ~'calc(100% - 120px)';
+}
+
+.menu-screen .menu-image:before{
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle; /* vertical alignment of the inline element */
+  height: 100%;
+}
+
 .menu-screen .menu-content-2{
   left: 100%;
   display: none;
 }
 
-.menu-screen .menu-content-1 figure{
-
+.menu-screen .menu-content-1 .menu-image figure{
+  width: 186px;
+  height: 220px;
+  display: inline-block;
+  background-image: url('@static/placeholder1.png');
+  vertical-align: middle;
+  background-size: 186px 220px;
 }
 
-.menu-screen .menu-content-2 figure{
-
+.menu-screen .menu-content-2 .menu-image figure{
+  width: 260px;
+  height: 178px;
+  display: inline-block;
+  background-image: url('@static/placeholder2.png');
+  vertical-align: middle;
+  background-size: 260px 178px;
 }
-
-
 
 .menu-screen .title{
   font-size: 21px;

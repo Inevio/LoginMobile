@@ -7,6 +7,21 @@ var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-lef
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
+var mc;
+var hammerLoaded = false;
+var menuMode = false;
+
+var intervalo = setInterval( function(){
+  if( typeof Hammer !== 'undefined' ){
+    clearInterval( intervalo );
+    console.log('cargo');
+    hammerLoaded = true;
+    mc = new Hammer(win[0] , {
+      domEvents:true
+    });
+  }
+},50)
+
 
 var back = function( stage ){
 
@@ -167,14 +182,14 @@ win.on('click', '.sign-in', function(){
 
     $('.sign-up').css({'margin-right':'0px'}).transition({
       'opacity': '0'
-    },50,function(){
+    },50,function(){//50
       $(this).hide();
     });
 
     $(this).transition({
       'width': '317px',
       'background-color': '#60b25e',
-      'border': 'none'
+      'border': '2px solid #60b25e'
     },500,function(){
 
       $(this).addClass('accept').css('float','right');
@@ -344,6 +359,7 @@ win.on('click', '.sign-in', function(){
     'left': '20px',
     'opacity' : '0.2'
   },1000,function(){
+    menuMode = true;
     $(this).hide();
     $('.menu-screen .header figure').show();
   });
@@ -383,6 +399,7 @@ win.on('click', '.sign-in', function(){
     'left': '0',
     'opacity' : '1'
   },1000,function(){
+    menuMode = false;
     $(this).hide();
     $('.login-screen .inevio-logo').show();
   });
@@ -420,4 +437,8 @@ win.on('click', '.sign-in', function(){
     $('.recover').click();
   }
 
+})
+
+.on( 'swiperight panright', function(){
+  $('.back-button').click();
 });
