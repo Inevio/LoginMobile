@@ -495,7 +495,17 @@ win.on('click', '.sign-in', function(){
 
 })
 
-/*.on( 'swiperight panright', function(){
+.on( 'swiperight', function(){
+
+  if( !menuMode ){
+    //$('.back-button').click();
+  }else{
+    menuSwipe(1);
+  }
+
+})
+
+.on( 'swipeleft', function(){
 
   if( !menuMode ){
     $('.back-button').click();
@@ -505,32 +515,22 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on( 'swipeleft panleft', function(){
-
-  if( !menuMode ){
-    $('.back-button').click();
-  }else{
-    menuSwipe(1);
-  }
-
-})*/
-
 .on('click', '.bullet-2', function(){
 
-  if( !menuMode ){
+  /*if( !menuMode ){
     $('.back-button').click();
   }else{
     menuSwipe(-1);
-  }
+  }*/
 
 })
 
 .on('click', '.bullet-3', function(){
 
-  if( !menuMode ){
+  /*if( !menuMode ){
     $('.back-button').click();
   }else{
     menuSwipe(1);
-  }
+  }*/
 
 });

@@ -1,6 +1,6 @@
 .login-screen{
   bottom: 0;
-  background-image: url("@static/login.jpg");
+  background-image: url("https://static.inevio.com/script/mobiletest/static/login.jpg");
   background-position: right;
   background-size: cover;
 }
@@ -27,7 +27,7 @@
 .back-button figure{
   width: 15px;
   height: 16px;
-  background-image: url('@static/back.png');
+  background-image: url('https://static.inevio.com/script/mobiletest/static/back.png');
   background-size: 15px 16px;
   display: inline-block;
   cursor: pointer;
@@ -45,7 +45,7 @@
 }
 
 .inevio-logo{
-  background-image: url("@static/logo.png");
+  background-image: url("https://static.inevio.com/script/mobiletest/static/logo.png");
   width: 251px;
   height: 49px;
   background-size: 251px 49px;
@@ -58,7 +58,7 @@
 }
 
 .inevio-logo.dark{
-  background-image: url("@static/logo-dark.png");
+  background-image: url("https://static.inevio.com/script/mobiletest/static/logo-dark.png");
   opacity: 0;
 }
 
@@ -178,7 +178,7 @@
 .inputs input{
   background-color: transparent;
   margin: 17px 32px 0px 32px;
-  width: ~'calc(100% - 64px)';
+  width: calc(100% - 64px);
   font-size: 20px;
   font-family: Lato;
   color: #ffffff;
@@ -217,7 +217,7 @@
   width: 138px;
   height: 138px;
   background-size: 138px 138px;
-  background-image: url('@static/confirmation.png');
+  background-image: url('https://static.inevio.com/script/mobiletest/static/confirmation.png');
   display: inline-block;
   margin-bottom: 45px;
   margin-top: 50px;
@@ -246,7 +246,7 @@
 	background-color: rgba(36, 41, 47, 0.5);
   position: absolute;
   bottom: 0;
-  left: ~"calc(50% - 83px)";
+  left: calc(50% - 83px);
   cursor: pointer;
 }
 
@@ -254,7 +254,7 @@
   float:left;
   width: 14px;
   height: 8px;
-  background-image: url("@static/arrow.png");
+  background-image: url("https://static.inevio.com/script/mobiletest/static/arrow.png");
   display: inline-block;
   background-size: cover;
   margin: 20px 19px 0px 19px;
@@ -304,7 +304,7 @@
 .menu-screen .header figure{
   width: 108px;
   height: 21px;
-  background-image: url('@static/logo-dark.png');
+  background-image: url('https://static.inevio.com/script/mobiletest/static/logo-dark.png');
   background-size: cover;
   float: left;
   margin: 20px 0px 0px 20px;
@@ -322,7 +322,7 @@
 
 .menu-screen .menu-content{
   width: 100%;
-  height: ~'calc(100% - 134px)';
+  height: calc(100% - 134px);
   text-align: center;
   position: relative;
   left: 0;
@@ -331,7 +331,7 @@
 
 .menu-screen .menu-image{
   width: 100%;
-  height: ~'calc(100% - 120px)';
+  height: calc(100% - 120px);
 }
 
 .menu-screen .menu-image:before{
@@ -350,7 +350,7 @@
   width: 186px;
   height: 220px;
   display: inline-block;
-  background-image: url('@static/placeholder1.png');
+  background-image: url('https://static.inevio.com/script/mobiletest/static/placeholder1.png');
   vertical-align: middle;
   background-size: 186px 220px;
 }
@@ -359,7 +359,7 @@
   width: 260px;
   height: 178px;
   display: inline-block;
-  background-image: url('@static/placeholder2.png');
+  background-image: url('https://static.inevio.com/script/mobiletest/static/placeholder2.png');
   vertical-align: middle;
   background-size: 260px 178px;
 }
