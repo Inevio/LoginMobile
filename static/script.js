@@ -3,6 +3,7 @@ var win = $(this);
 var contentContainer = $('.content-container');
 var initialMarginTopLogo = $('.inevio-logo').css('top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
+var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
@@ -330,10 +331,12 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.more', function(){
 
-  $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
-  $('.login-screen .inevio-logo').hide();
+  initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
+  if( $('.start .inevio-logo').length == 0 ){
+    $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
+  }
 
-  $('.start .inevio-logo.white').transition({
+  $('.start .inevio-logo.white').show().transition({
     'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
@@ -345,7 +348,7 @@ win.on('click', '.sign-in', function(){
     $('.menu-screen .header figure').show();
   });
 
-  $('.start .inevio-logo.dark').transition({
+  $('.start .inevio-logo.dark').show().transition({
     'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
@@ -356,6 +359,8 @@ win.on('click', '.sign-in', function(){
     $(this).hide();
   });
 
+  $('.login-screen .inevio-logo').hide();
+
   $('.login-screen').transition({
     'bottom' : '100%'
   },1000,function(){
@@ -365,6 +370,43 @@ win.on('click', '.sign-in', function(){
   $('.menu-screen').show().transition({
     'bottom' : '0'
   },1000);
+
+})
+
+.on('click', '.less', function(){
+
+  $('.start .inevio-logo.white').show().transition({
+    'margin-left' : initialMarginLeftLogo,
+    'width': '251px',
+    'height': '49px',
+    'top': '185px',
+    'left': '0',
+    'opacity' : '1'
+  },1000,function(){
+    $(this).hide();
+    $('.login-screen .inevio-logo').show();
+  });
+
+  $('.start .inevio-logo.dark').show().transition({
+    'margin-left' : initialMarginLeftLogo,
+    'width': '251px',
+    'height': '49px',
+    'top': '185px',
+    'left': '0',
+    'opacity' : '0'
+  },1000,function(){
+    $(this).hide();
+  });
+
+  $('.login-screen').show().transition({
+    'bottom' : '0'
+  },1000);
+
+  $('.menu-screen').transition({
+    'bottom' : '-100%'
+  },1000,function(){
+    $(this).hide();
+  });
 
 })
 
