@@ -87,7 +87,7 @@
   text-align: center;
   line-height: 30px;
   position: relative;
-  left: 0;
+  transform: translate3d(0%, 0px, 0px);
   max-width: 80%;
   top: 99px;
 }
@@ -148,7 +148,7 @@
 .inputs{
   width: 312px;
   position: relative;
-  left: 100%;
+  transform: translate3d(100%, 0px, 0px);
   display: none;
   margin: 0px auto 0px auto;
   top: 50px;
@@ -208,7 +208,7 @@
 .recover-passwd-success{
   display: none;
   position: relative;
-  left: 100%;
+  transform: translate3d(100%, 0px, 0px);
   text-align: center;
   top: 50px;
 }
@@ -292,7 +292,7 @@
 }
 
 .menu-screen{
-  bottom: -100%;
+  transform: translate3d(0px, -100%, 0px);
   background-color: #f8f8f9;
 }
 
@@ -325,7 +325,7 @@
   height: ~'calc(100% - 134px)';
   text-align: center;
   position: relative;
-  left: 0;
+  transform: translate3d(0%, 0px, 0px);
   float: left;
 }
 
@@ -342,7 +342,7 @@
 }
 
 .menu-screen .menu-content-2, .menu-screen .menu-content-3{
-  left: 100%;
+  transform: translate3d(100%, 0px, 0px);
   display: none;
 }
 

@@ -1,6 +1,8 @@
 
 var win = $('body');
 var contentContainer = $('.content-container');
+var bodyWidth = win.css('width');
+var bodyHeight = win.css('height');
 var initialMarginTopLogo = $('.inevio-logo').css('y');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
@@ -35,7 +37,7 @@ var back = function( stage ){
     },500);
 
     $('.login.inputs').transition({
-      'x': '100%'
+      'x': bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -76,7 +78,7 @@ var back = function( stage ){
     },500,function(){});
 
     $('.inputs.register').transition({
-      'x': '100%'
+      'x': bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -142,7 +144,7 @@ var back = function( stage ){
     },500);
 
     $('.recover-passwd-success').transition({
-      'x' : '100%'
+      'x' : bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -172,7 +174,7 @@ var menuSwipe = function( value ){
       menuStage++;
 
       $('.menu-content.active').transition({
-        'x' : '-100%'
+        'x' : '-' + bodyWidth
       },500,function(){
         $(this).removeClass('active');
         $(this).hide();
@@ -194,7 +196,7 @@ var menuSwipe = function( value ){
 
       menuStage--;
       $('.menu-content.active').transition({
-        'x' : '100%'
+        'x' : bodyWidth
       },500,function(){
         transitioning = false;
         $(this).removeClass('active');
@@ -225,7 +227,7 @@ win.on('click', '.sign-in', function(){
     },500);
 
     $('.slogan').transition({
-      'x': '-100%'
+      'x': '-' + bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -286,7 +288,7 @@ win.on('click', '.sign-in', function(){
     },500);
 
     $('.slogan').transition({
-      'x': '-100%'
+      'x': '-' + bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -369,7 +371,7 @@ win.on('click', '.sign-in', function(){
     });
 
     $('.inputs.login').transition({
-      'x' : '-100%'
+      'x' : '-' + bodyWidth
     },250,function(){
 
       $(this).hide();
@@ -382,7 +384,7 @@ win.on('click', '.sign-in', function(){
     });
 
     $('.login-buttons').transition({
-      'x' : '-200%'
+      'x' : '-' + bodyWidth
     },500,function(){
       $(this).hide();
     });
@@ -434,13 +436,13 @@ win.on('click', '.sign-in', function(){
   $('.login-screen .inevio-logo').hide();
 
   $('.login-screen').transition({
-    'bottom' : '100%'
+    'y' : bodyHeight
   },1000,function(){
     $(this).hide();
   });
 
   $('.menu-screen').show().transition({
-    'bottom' : '0'
+    'y' : '0'
   },1000);
 
 })
@@ -474,11 +476,11 @@ win.on('click', '.sign-in', function(){
   $('.menu-screen .header figure').hide();
 
   $('.login-screen').show().transition({
-    'bottom' : '0'
+    'y' : '0'
   },1000);
 
   $('.menu-screen').transition({
-    'bottom' : '-100%'
+    'y' : '-' + bodyHeight
   },1000,function(){
     $(this).hide();
   });
