@@ -1,7 +1,7 @@
 
 var win = $('body');
 var contentContainer = $('.content-container');
-var initialMarginTopLogo = $('.inevio-logo').css('top');
+var initialMarginTopLogo = $('.inevio-logo').css('y');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
@@ -31,16 +31,16 @@ var back = function( stage ){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'top': initialMarginTopLogo,
+      'y': initialMarginTopLogo,
     },500);
 
     $('.login.inputs').transition({
-      'left': '100%'
+      'x': '100%'
     },250,function(){
 
       $(this).hide();
       $('.slogan').show().transition({
-        'left' : '0%'
+        'x' : '0%'
       },250);
 
     });
@@ -72,16 +72,16 @@ var back = function( stage ){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'top': initialMarginTopLogo,
+      'y': initialMarginTopLogo,
     },500,function(){});
 
     $('.inputs.register').transition({
-      'left': '100%'
+      'x': '100%'
     },250,function(){
 
       $(this).hide();
       $('.slogan').show().transition({
-        'left' : '0%'
+        'x' : '0%'
       },250);
 
     });
@@ -142,18 +142,18 @@ var back = function( stage ){
     },500);
 
     $('.recover-passwd-success').transition({
-      'left' : '100%'
+      'x' : '100%'
     },250,function(){
 
       $(this).hide();
       $('.inputs.login').show().transition({
-        'left' : '0'
+        'x' : '0'
       },250,function(){
         loginStage = 3;
       });
 
       $('.login-buttons').show().transition({
-        'left' : '0%'
+        'x' : '0%'
       },250);
 
     });
@@ -172,7 +172,7 @@ var menuSwipe = function( value ){
       menuStage++;
 
       $('.menu-content.active').transition({
-        'left' : '-100%'
+        'x' : '-100%'
       },500,function(){
         $(this).removeClass('active');
         $(this).hide();
@@ -181,7 +181,7 @@ var menuSwipe = function( value ){
       })
 
       $('.menu-content-' + menuStage).show().transition({
-        'left' : '0'
+        'x' : '0'
       },500,function(){
         $(this).addClass('active');
       })
@@ -194,7 +194,7 @@ var menuSwipe = function( value ){
 
       menuStage--;
       $('.menu-content.active').transition({
-        'left' : '100%'
+        'x' : '100%'
       },500,function(){
         transitioning = false;
         $(this).removeClass('active');
@@ -204,7 +204,7 @@ var menuSwipe = function( value ){
       })
 
       $('.menu-content-' + menuStage).show().transition({
-        'left' : '0'
+        'x' : '0'
       },500,function(){
         $(this).addClass('active');
       })
@@ -221,16 +221,16 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'top': '0px',
+      'y': '0px',
     },500);
 
     $('.slogan').transition({
-      'left': '-100%'
+      'x': '-100%'
     },250,function(){
 
       $(this).hide();
       $('.login.inputs').show().transition({
-        'left' : '0%'
+        'x' : '0%'
       },250);
 
     });
@@ -282,16 +282,16 @@ win.on('click', '.sign-in', function(){
 
     loginStage = -1;
     $('.inevio-logo').transition({
-      'top': '0px',
+      'y': '0px',
     },500);
 
     $('.slogan').transition({
-      'left': '-100%'
+      'x': '-100%'
     },250,function(){
 
       $(this).hide();
       $('.inputs.register').show().transition({
-        'left' : '0%'
+        'x' : '0%'
       },250);
 
     });
@@ -369,12 +369,12 @@ win.on('click', '.sign-in', function(){
     });
 
     $('.inputs.login').transition({
-      'left' : '-100%'
+      'x' : '-100%'
     },250,function(){
 
       $(this).hide();
       $('.recover-passwd-success').show().transition({
-        'left' : '0'
+        'x' : '0'
       },250,function(){
         loginStage = 4;
       })
@@ -382,7 +382,7 @@ win.on('click', '.sign-in', function(){
     });
 
     $('.login-buttons').transition({
-      'left' : '-200%'
+      'x' : '-200%'
     },500,function(){
       $(this).hide();
     });
@@ -404,15 +404,15 @@ win.on('click', '.sign-in', function(){
 
   initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
   if( $('.start .inevio-logo').length == 0 ){
-    $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
+    $('.start').append( $('.inevio-logo').clone().css({'y':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
   }
 
   $('.start .inevio-logo.white').show().transition({
     'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
-    'top': '20px',
-    'left': '20px',
+    'y': '20px',
+    'x': '20px',
     'opacity' : '0.2'
   },1000,function(){
     menuMode = true;
@@ -424,8 +424,8 @@ win.on('click', '.sign-in', function(){
     'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
-    'top': '20px',
-    'left': '20px',
+    'y': '20px',
+    'x': '20px',
     'opacity' : '1'
   },1000,function(){
     $(this).hide();
@@ -451,8 +451,8 @@ win.on('click', '.sign-in', function(){
     'margin-left' : initialMarginLeftLogo,
     'width': '251px',
     'height': '49px',
-    'top': '185px',
-    'left': '0',
+    'y': '185px',
+    'x': '0',
     'opacity' : '1'
   },1000,function(){
     menuMode = false;
@@ -464,8 +464,8 @@ win.on('click', '.sign-in', function(){
     'margin-left' : initialMarginLeftLogo,
     'width': '251px',
     'height': '49px',
-    'top': '185px',
-    'left': '0',
+    'y': '185px',
+    'x': '0',
     'opacity' : '0'
   },1000,function(){
     $(this).hide();
@@ -498,7 +498,7 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on( 'swiperight', function(){
+.on( 'swipeleft', function(){
 
   if( !menuMode ){
     //$('.back-button').click();
@@ -508,7 +508,7 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on( 'swipeleft', function(){
+.on( 'swiperight', function(){
 
   if( !menuMode ){
     $('.back-button').click();
