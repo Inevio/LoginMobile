@@ -325,6 +325,8 @@
   height: ~'calc(100% - 134px)';
   text-align: center;
   position: relative;
+  left: 0;
+  float: left;
 }
 
 .menu-screen .menu-image{
@@ -339,7 +341,7 @@
   height: 100%;
 }
 
-.menu-screen .menu-content-2{
+.menu-screen .menu-content-2, .menu-screen .menu-content-3{
   left: 100%;
   display: none;
 }
@@ -353,7 +355,7 @@
   background-size: 186px 220px;
 }
 
-.menu-screen .menu-content-2 .menu-image figure{
+.menu-screen .menu-content-2 .menu-image figure, .menu-screen .menu-content-3 .menu-image figure{
   width: 260px;
   height: 178px;
   display: inline-block;

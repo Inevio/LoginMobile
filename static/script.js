@@ -10,6 +10,8 @@ var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-succe
 var mc;
 var hammerLoaded = false;
 var menuMode = false;
+var menuStage = 1;
+var transitioning = false;
 
 var intervalo = setInterval( function(){
   if( typeof Hammer !== 'undefined' ){
@@ -155,6 +157,59 @@ var back = function( stage ){
       },250);
 
     });
+
+  }
+
+}
+
+var menuSwipe = function( value ){
+
+  console.log(value);
+  if( value === 1 ){
+
+    if( menuStage !== 3 ){
+
+      menuStage++;
+
+      $('.menu-content.active').transition({
+        'left' : '-100%'
+      },500,function(){
+        $(this).removeClass('active');
+        $(this).hide();
+        $('.bullet.active').removeClass('active');
+        $('.bullet-' + menuStage).addClass('active');
+      })
+
+      $('.menu-content-' + menuStage).show().transition({
+        'left' : '0'
+      },500,function(){
+        $(this).addClass('active');
+      })
+
+    }
+
+  }else{
+
+    if( menuStage !== 1 ){
+
+      menuStage--;
+      $('.menu-content.active').transition({
+        'left' : '100%'
+      },500,function(){
+        transitioning = false;
+        $(this).removeClass('active');
+        $(this).hide();
+        $('.bullet.active').removeClass('active');
+        $('.bullet-' + menuStage).addClass('active');
+      })
+
+      $('.menu-content-' + menuStage).show().transition({
+        'left' : '0'
+      },500,function(){
+        $(this).addClass('active');
+      })
+
+    }
 
   }
 
@@ -429,6 +484,7 @@ win.on('click', '.sign-in', function(){
 
 .on('key', 'enter', function(){
 
+  console.log('texto');
   if( loginStage === 0 || loginStage === 1 ){
     $('.sign-in').click();
   }else if( loginStage === 2 ){
@@ -439,6 +495,42 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on( 'swiperight panright', function(){
-  $('.back-button').click();
+/*.on( 'swiperight panright', function(){
+
+  if( !menuMode ){
+    $('.back-button').click();
+  }else{
+    menuSwipe(-1);
+  }
+
+})
+
+.on( 'swipeleft panleft', function(){
+
+  if( !menuMode ){
+    $('.back-button').click();
+  }else{
+    menuSwipe(1);
+  }
+
+})*/
+
+.on('click', '.bullet-2', function(){
+
+  if( !menuMode ){
+    $('.back-button').click();
+  }else{
+    menuSwipe(-1);
+  }
+
+})
+
+.on('click', '.bullet-3', function(){
+
+  if( !menuMode ){
+    $('.back-button').click();
+  }else{
+    menuSwipe(1);
+  }
+
 });
