@@ -480,7 +480,7 @@ win.on('click', '.sign-in', function(){
   },1000);
 
   $('.menu-screen').transition({
-    'y' : '-' + bodyHeight
+    'y' : bodyHeight
   },1000,function(){
     $(this).hide();
   });
@@ -517,25 +517,5 @@ win.on('click', '.sign-in', function(){
   }else{
     menuSwipe(-1);
   }
-
-})
-
-.on('click', '.bullet-2', function(){
-
-  /*if( !menuMode ){
-    $('.back-button').click();
-  }else{
-    menuSwipe(-1);
-  }*/
-
-})
-
-.on('click', '.bullet-3', function(){
-
-  /*if( !menuMode ){
-    $('.back-button').click();
-  }else{
-    menuSwipe(1);
-  }*/
 
 });
