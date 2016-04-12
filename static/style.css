@@ -5,6 +5,10 @@
   background-size: cover;
 }
 
+.start .inevio-logo{
+  display: none;
+}
+
 .back-button{
   width: 75px;
   height: 17px;
