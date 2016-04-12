@@ -379,7 +379,8 @@ win.on('click', '.sign-in', function(){
 
       $(this).hide();
       $('.recover-passwd-success').show().transition({
-        'x' : '0'
+        'x' : '0',
+        'y' : '50px'
       },250,function(){
         loginStage = 4;
       })
