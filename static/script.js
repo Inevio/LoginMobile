@@ -3,7 +3,7 @@ var win = $('body');
 var contentContainer = $('.content-container');
 var bodyWidth = win.css('width');
 var bodyHeight = win.css('height');
-var initialYlogo = $('.login-screen .inevio-logo.white').css('transform').split(',')[5];
+var initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
 var initialMarginTopLogo = parseInt( $('.content-container').css('margin-top') ) || parseInt( $('.content-container').css('top') );
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
@@ -15,6 +15,8 @@ var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var transitioning = false;
+
+//$('body').css('height' , $('body').css('height') );
 
 var intervalo = setInterval( function(){
   if( typeof Hammer !== 'undefined' ){
@@ -33,7 +35,7 @@ var back = function( stage ){
   if( stage == 1 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    $('.login-screen .inevio-logo').transition({
       'y': initialYlogo,
     },500);
 
@@ -74,7 +76,7 @@ var back = function( stage ){
   }else if( stage == 2 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    $('.login-screen .inevio-logo').transition({
       'y': initialYlogo,
     },500,function(){});
 
@@ -223,7 +225,7 @@ win.on('click', '.sign-in', function(){
   if( loginStage == 0 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    $('.login-screen .inevio-logo').transition({
       'y': '0px',
     },500);
 
@@ -284,7 +286,7 @@ win.on('click', '.sign-in', function(){
   if( loginStage == 0 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    $('.login-screen .inevio-logo').transition({
       'y': '0px',
     },500);
 
@@ -405,10 +407,10 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.more', function(){
 
-  var y = parseInt(initialMarginTopLogo) + parseInt(initialYlogo);
+  var y = parseInt(initialMarginTopLogo) + initialYlogo;
   initialMarginLeftLogo = parseInt( $('.login-screen .inevio-logo.dark').css('margin-left') ) || parseInt( $('.login-screen .inevio-logo.dark').css('left') );
   if( $('.start .inevio-logo').length == 0 ){
-    $('.start').append( $('.inevio-logo').clone().css({'background-size':'cover', 'margin-left': initialMarginLeftLogo }) );
+    $('.start').append( $('.login-screen .inevio-logo').clone().css({'background-size':'cover', 'margin-left': initialMarginLeftLogo }) );
   }
 
   $('.start .inevio-logo').transition({
@@ -455,7 +457,7 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.less', function(){
 
-  var y = parseInt(initialMarginTopLogo) + parseInt(initialYlogo);
+  var y = parseInt(initialMarginTopLogo) + initialYlogo;
   $('.start .inevio-logo.white').show().transition({
     'margin-left' : initialMarginLeftLogo,
     'width': '251px',
