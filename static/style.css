@@ -52,7 +52,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50px;
+  transform: translate3d(0px, 50px, 0px);
   margin: 0px auto 0px auto;
   z-index: 1;
 }
@@ -165,18 +165,18 @@
 .inputs{
   width: 312px;
   position: relative;
-  transform: translate3d(100%, 0px, 0px);
   display: none;
   margin: 0px auto 0px auto;
-  top: 50px;
 }
 
 .inputs.login{
-  margin-top: 66px;
+  margin-top: 116px;
+  transform: translate3d(100%, 0px, 0px);
 }
 
 .inputs.register{
-  margin-top: 60px;
+  margin-top: 110px;
+  transform: translate3d(100%, 0px, 0px);
 }
 
 .inputs .input{
@@ -225,9 +225,8 @@
 .recover-passwd-success{
   display: none;
   position: relative;
-  transform: translate3d(100%, 0px, 0px);
+  transform: translate3d(100%, 50px, 0px);
   text-align: center;
-  top: 50px;
 }
 
 .recover-passwd-success figure{
@@ -309,7 +308,7 @@
 }
 
 .menu-screen{
-  transform: translate3d(0px, -100%, 0px);
+  transform: translate3d(0px, 100%, 0px);
   background-color: #f8f8f9;
 }
 

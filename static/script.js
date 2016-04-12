@@ -232,7 +232,7 @@ win.on('click', '.sign-in', function(){
 
       $(this).hide();
       $('.login.inputs').show().transition({
-        'x' : '0%'
+        'x' : '0'
       },250);
 
     });
