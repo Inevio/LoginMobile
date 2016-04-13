@@ -36,6 +36,7 @@ var intervalo = setInterval( function(){
 
 var back = function( stage ){
 
+  $('.login-screen .error').removeClass('error');
   if( stage == 1 ){
 
     loginStage = -1;
@@ -338,6 +339,7 @@ win.on('click', '.sign-in', function(){
 
 .on('click', '.forgot', function(){
 
+  $('.login-screen .error').removeClass('error');
   loginStage = -1;
   $('.passwd-recover').show().transition({
     'opacity': '1'

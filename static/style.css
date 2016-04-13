@@ -502,4 +502,23 @@
     top: 55px;
   }
 
+  .menu-screen .menu-content-1 .menu-image figure {
+    width: 151px;
+    height: 186px;
+    background-size: cover;
+  }
+
+
+  .menu-screen .menu-content-2 .menu-image figure, .menu-screen .menu-content-3 .menu-image figure {
+
+  }
+
+  .menu-screen .title {
+    font-size: 17px;
+  }
+
+  .menu-screen .text {
+    font-size: 13px;
+  }
+
 }
