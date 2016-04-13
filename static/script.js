@@ -15,8 +15,13 @@ var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var transitioning = false;
+var lowResMode = false;
 
-$('body').css('height' , $('body').css('height') );
+if( parseInt( win.css('width') ) < 360 ){
+  lowResMode = true;
+}
+
+win.css('height' , win.css('height') );
 
 var intervalo = setInterval( function(){
 
@@ -246,7 +251,7 @@ win.on('click', '.sign-in', function(){
     });
 
     $(this).transition({
-      'width': '317px',
+      'width': '100%',
       'background-color': '#60b25e',
       'border': '2px solid #60b25e'
     },500,function(){
@@ -308,11 +313,10 @@ win.on('click', '.sign-in', function(){
     $('.sign-in').hide();
 
     $(this).transition({
-      'width': '317px',
+      'width': '100%',
       'margin-right':'0px',
       'background-color': '#60b25e',
-      'border': 'none',
-      'height': '58px'
+      'border': 'none'
     },500);
 
     $('.more').transition({
@@ -339,8 +343,13 @@ win.on('click', '.sign-in', function(){
     'opacity': '1'
   },500);
 
+  var height = 360;
+  if( lowResMode ){
+    height = 265;
+  }
+
   contentContainer.transition({
-    'height' : '360px'
+    'height' : height
   },500);
 
   $('.inputs.login .password').transition({
@@ -400,9 +409,7 @@ win.on('click', '.sign-in', function(){
 })
 
 .on('click', '.back-button', function(){
-
   back( loginStage );
-
 })
 
 .on('click', '.more', function(){
@@ -460,8 +467,8 @@ win.on('click', '.sign-in', function(){
   var y = parseInt(initialMarginTopLogo) + initialYlogo;
   $('.start .inevio-logo.white').show().transition({
     'margin-left' : initialMarginLeftLogo,
-    'width': '251px',
-    'height': '49px',
+    'width': $('.login-screen .inevio-logo.white').css('width'),
+    'height': $('.login-screen .inevio-logo.white').css('height'),
     'y': y,
     'x': '0',
     'opacity' : '1'
@@ -473,8 +480,8 @@ win.on('click', '.sign-in', function(){
 
   $('.start .inevio-logo.dark').show().transition({
     'margin-left' : initialMarginLeftLogo,
-    'width': '251px',
-    'height': '49px',
+    'width': $('.login-screen .inevio-logo.white').css('width'),
+    'height': $('.login-screen .inevio-logo.white').css('height'),
     'y': y,
     'x': '0',
     'opacity' : '0'
