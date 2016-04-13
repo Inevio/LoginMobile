@@ -10,25 +10,24 @@ var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-lef
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
-var mc;
+var hammerJS;
 var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var transitioning = false;
 
-//$('body').css('height' , $('body').css('height') );
+$('body').css('height' , $('body').css('height') );
 
 var intervalo = setInterval( function(){
+
   if( typeof Hammer !== 'undefined' ){
     clearInterval( intervalo );
-    console.log('cargo');
     hammerLoaded = true;
-    mc = new Hammer(win[0] , {
+    hammerJS = new Hammer(win[0] , {
       domEvents:true
     });
   }
-},50)
-
+},50);
 
 var back = function( stage ){
 
