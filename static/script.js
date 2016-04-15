@@ -4,14 +4,13 @@ var contentContainer = $('.content-container');
 var bodyWidth = win.css('width');
 var bodyHeight = win.css('height');
 var initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
-var initialMarginTopLogo = parseInt( $('.content-container').css('margin-top') ) || parseInt( $('.content-container').css('top') );
+var initialMarginTopLogo = parseInt( contentContainer.css('margin-top') ) || parseInt( contentContainer.css('top') );
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.outerHeight(false);
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 var hammerJS;
-var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var lowResMode = false;
@@ -27,7 +26,6 @@ var intervalo = setInterval( function(){
 
   if( typeof Hammer !== 'undefined' ){
     clearInterval( intervalo );
-    hammerLoaded = true;
     hammerJS = new Hammer(win[0] , {
       domEvents:true
     });
@@ -230,7 +228,7 @@ win.on('click', '.sign-in', function(){
 
     $('.sign-up').css({'margin-right':'0px'}).transition({
       'opacity': '0'
-    },50,function(){//50
+    },50,function(){
       $(this).hide();
     });
 
@@ -501,9 +499,7 @@ win.on('click', '.sign-in', function(){
 
 .on( 'swipeleft', function(){
 
-  if( !menuMode ){
-    //$('.back-button').click();
-  }else{
+  if( menuMode ){
     menuSwipe(1);
   }
 
