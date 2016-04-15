@@ -436,7 +436,7 @@ win.on('click', '.sign-in', function(){
   $('.login-screen .inevio-logo').hide();
 
   $('.login-screen').transition({
-    'y' : bodyHeight
+    'y' : '-' + parseInt(bodyHeight)
   },1000,function(){
     $(this).hide();
   });
