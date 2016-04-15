@@ -31,6 +31,7 @@ var intervalo = setInterval( function(){
     hammerJS = new Hammer(win[0] , {
       domEvents:true
     });
+    hammerJS.get('swipe').set({ direction: Hammer.DIRECTION_ALL })
   }
 },50);
 
@@ -181,7 +182,7 @@ var menuSwipe = function( value ){
 
       $('.menu-content-container').animate({
         'scrollLeft' : parseInt(bodyWidth) * menuStage
-      },500,function(){
+      },350,function(){
         menuStage++;
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');
@@ -196,7 +197,7 @@ var menuSwipe = function( value ){
       menuStage--;
       $('.menu-content-container').animate({
         'scrollLeft' : parseInt(bodyWidth) * (menuStage - 1)
-      },500,function(){
+      },350,function(){
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');
       })
@@ -411,7 +412,6 @@ win.on('click', '.sign-in', function(){
   },0);
 
   $('.start .inevio-logo.white').show().transition({
-    'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
     'y': '20px',
@@ -424,7 +424,6 @@ win.on('click', '.sign-in', function(){
   });
 
   $('.start .inevio-logo.dark').show().transition({
-    'margin-left' : '0px',
     'width': '108px',
     'height': '21px',
     'y': '20px',
@@ -516,6 +515,22 @@ win.on('click', '.sign-in', function(){
     $('.back-button').click();
   }else{
     menuSwipe(-1);
+  }
+
+})
+
+.on( 'swipeup', function(){
+
+  if( !menuMode ){
+    $('.more').click();
+  }
+
+})
+
+.on( 'swipedown', function(){
+
+  if( menuMode ){
+    $('.less').click();
   }
 
 });
