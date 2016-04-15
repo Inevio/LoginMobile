@@ -543,4 +543,12 @@
     margin-top: 20px;
   }
 
+  .recover-passwd-success .title {
+    font-size: 15px;
+  }
+
+  .recover-passwd-success .text {
+    font-size: 13px;
+  }
+
 }
