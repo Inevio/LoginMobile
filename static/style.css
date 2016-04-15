@@ -253,7 +253,8 @@
 }
 
 .recover-passwd-success .text{
-  margin-top: 27px;
+  max-width: 85%;
+  margin: 27px auto 0 auto;
   color: #d2dce2;
   font-size: 15px;
   font-family: Lato;
@@ -535,6 +536,11 @@
   .menu-screen .text {
     font-size: 13px;
     line-height: 1.2em;
+  }
+
+  .recover-passwd-success figure {
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
 
 }
