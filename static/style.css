@@ -340,12 +340,16 @@
   font-family: Lato;
 }
 
+.menu-content-container{
+  width: 300%;
+  height: ~'calc(100% - 134px)';
+}
+
 .menu-screen .menu-content{
   width: 100%;
-  height: ~'calc(100% - 134px)';
+  height: 100%;
   text-align: center;
   position: relative;
-  transform: translate3d(0%, 0px, 0px);
   float: left;
 }
 
@@ -361,10 +365,13 @@
   height: 100%;
 }
 
-.menu-screen .menu-content-2, .menu-screen .menu-content-3{
+/*.menu-screen .menu-content{
+  transform: translate3d(0px, 0px, 0px);
+}*/
+
+/*.menu-screen .menu-content-3{
   transform: translate3d(100%, 0px, 0px);
-  display: none;
-}
+}*/
 
 .menu-screen .menu-content-1 .menu-image figure{
   width: 186px;

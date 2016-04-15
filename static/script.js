@@ -14,7 +14,6 @@ var hammerJS;
 var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
-var transitioning = false;
 var lowResMode = false;
 
 if( parseInt( win.css('width') ) < 360 ){
@@ -22,6 +21,7 @@ if( parseInt( win.css('width') ) < 360 ){
 }
 
 win.css('height' , win.css('height') );
+$('.menu-content').css('width', win.css('width') );
 
 var intervalo = setInterval( function(){
 
@@ -181,19 +181,11 @@ var menuSwipe = function( value ){
 
       menuStage++;
 
-      $('.menu-content.active').transition({
-        'x' : '-' + bodyWidth
+      $('.menu-content-container').transition({
+        'scrollLeft' : '-' + bodyWidth
       },500,function(){
-        $(this).removeClass('active');
-        $(this).hide();
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');
-      })
-
-      $('.menu-content-' + menuStage).show().transition({
-        'x' : '0'
-      },500,function(){
-        $(this).addClass('active');
       })
 
     }
@@ -203,20 +195,11 @@ var menuSwipe = function( value ){
     if( menuStage !== 1 ){
 
       menuStage--;
-      $('.menu-content.active').transition({
-        'x' : bodyWidth
+      $('.menu-content-container').transition({
+        'scrollLeft' : bodyWidth
       },500,function(){
-        transitioning = false;
-        $(this).removeClass('active');
-        $(this).hide();
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');
-      })
-
-      $('.menu-content-' + menuStage).show().transition({
-        'x' : '0'
-      },500,function(){
-        $(this).addClass('active');
       })
 
     }
