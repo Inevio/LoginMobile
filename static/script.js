@@ -179,11 +179,10 @@ var menuSwipe = function( value ){
 
     if( menuStage !== 3 ){
 
-      menuStage++;
-
-      $('.menu-content-container').transition({
-        'scrollLeft' : '-' + bodyWidth
+      $('.menu-content-container').animate({
+        'scrollLeft' : parseInt(bodyWidth) * menuStage
       },500,function(){
+        menuStage++;
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');
       })
@@ -195,8 +194,8 @@ var menuSwipe = function( value ){
     if( menuStage !== 1 ){
 
       menuStage--;
-      $('.menu-content-container').transition({
-        'scrollLeft' : bodyWidth
+      $('.menu-content-container').animate({
+        'scrollLeft' : parseInt(bodyWidth) * (menuStage - 1)
       },500,function(){
         $('.bullet.active').removeClass('active');
         $('.bullet-' + menuStage).addClass('active');

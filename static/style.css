@@ -341,8 +341,14 @@
 }
 
 .menu-content-container{
-  width: 300%;
+  width: 100%;
   height: ~'calc(100% - 134px)';
+  overflow: hidden;
+}
+
+.menu-screen-container{
+  width: 300%;
+  height: 100%;
 }
 
 .menu-screen .menu-content{
