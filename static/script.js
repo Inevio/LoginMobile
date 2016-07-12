@@ -291,6 +291,45 @@ $('.sign-in').on('click', function(){
       $('.login.inputs .input').addClass('error');
     }
 
+  }else if( loginStage == 3 ){
+
+    console.log('recover');
+    if( $('.login.inputs .email').find('input').val() === 'a' ){
+
+      loginStage = -1;
+      $('.login.inputs .email').removeClass('error');
+      $('.passwd-recover').removeClass('error').text('Recover password');
+
+      $('.passwd-recover').transition({
+        'opacity' : '0'
+      },500,function(){
+        $(this).hide();
+      });
+
+      $('.inputs.login').transition({
+        'left' : '-100%'
+      },250,function(){
+
+        $(this).hide();
+        $('.recover-passwd-success').show().transition({
+          'left' : '0'
+        },250,function(){
+          loginStage = 4;
+        })
+
+      });
+
+      $('.login-buttons').transition({
+        'left' : '-200%'
+      },500,function(){
+        $(this).hide();
+      });
+
+    }else{
+      $('.login.inputs .email').addClass('error');
+      $('.passwd-recover').addClass('error').text('Email incorrecto');
+    }
+
   }
 
 });
@@ -377,47 +416,6 @@ $('.forgot').on('click', function(){
   });
 
 })
-
-$('.recover').on('click', function(){
-
-  console.log('recover');
-  if( $('.login.inputs .email').find('input').val() === 'a' ){
-
-    loginStage = -1;
-    $('.login.inputs .email').removeClass('error');
-    $('.passwd-recover').removeClass('error').text('Recover password');
-
-    $('.passwd-recover').transition({
-      'opacity' : '0'
-    },500,function(){
-      $(this).hide();
-    });
-
-    $('.inputs.login').transition({
-      'left' : '-100%'
-    },250,function(){
-
-      $(this).hide();
-      $('.recover-passwd-success').show().transition({
-        'left' : '0'
-      },250,function(){
-        loginStage = 4;
-      })
-
-    });
-
-    $('.login-buttons').transition({
-      'left' : '-200%'
-    },500,function(){
-      $(this).hide();
-    });
-
-  }else{
-    $('.login.inputs .email').addClass('error');
-    $('.passwd-recover').addClass('error').text('Email incorrecto');
-  }
-
-});
 
 backButton.on('click', function(){
 
@@ -515,22 +513,36 @@ $('.less').on('click', function(){
 
 });
 
-$('body').on( 'swiperight panright', function(){
+$('body').on( 'swiperight', function(){
 
-  if( !menuMode ){
-    backButton.click();
-  }else{
+  if( menuMode ){
     menuSwipe(-1);
+  }else{
+    backButton.click();
   }
 
 })
 
-.on( 'swipeleft panleft', function(){
+.on( 'swipeleft', function(){
+
+  if( menuMode ){
+    menuSwipe(1);
+  }
+
+})
+
+.on( 'swipeup', function(){
 
   if( !menuMode ){
-    //backButton.click();
-  }else{
-    menuSwipe(1);
+    $('.more').click();
+  }
+
+})
+
+.on( 'swipedown', function(){
+
+  if( menuMode ){
+    $('.less').click();
   }
 
 });
