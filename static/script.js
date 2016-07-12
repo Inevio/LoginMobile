@@ -1,10 +1,12 @@
 var win = $(this);
 var contentContainer = $('.content-container');
-var initialMarginTopLogo = $('.inevio-logo').css('top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
 var initialHeight = contentContainer.height();
+var inevioLogo = $('.inevio-logo');
+var backButton = $('.back-button');
+var initialMarginTopLogo = inevioLogo.css('top');
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 var mc;
 var hammerLoaded = false;
@@ -26,7 +28,7 @@ var intervalo = setInterval( function(){
 */
 var createCache = function(){
 
-  initialMarginTopLogo = $('.inevio-logo').css('top');
+  initialMarginTopLogo = inevioLogo.css('top');
   initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
   initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
   initialButtonWidth = $('.login-buttons .accept').css('width');
@@ -42,7 +44,7 @@ var back = function( stage ){
   if( stage == 1 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    inevioLogo.transition({
       'top': initialMarginTopLogo,
     },500);
 
@@ -72,7 +74,7 @@ var back = function( stage ){
       'opacity' : '1'
     },500);
 
-    $('.back-button').transition({
+    backButton.transition({
       'opacity' : '0'
     },500, function(){
       $(this).hide();
@@ -83,7 +85,7 @@ var back = function( stage ){
   }else if( stage == 2 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    inevioLogo.transition({
       'top': initialMarginTopLogo,
     },500,function(){});
 
@@ -116,7 +118,7 @@ var back = function( stage ){
       'opacity' : '1'
     },500);
 
-    $('.back-button').transition({
+    backButton.transition({
       'opacity' : '0'
     },500, function(){
       $(this).hide();
@@ -237,7 +239,7 @@ $('.sign-in').on('click', function(){
   if( loginStage == 0 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    inevioLogo.transition({
       'top': '0px',
     },500);
 
@@ -277,7 +279,7 @@ $('.sign-in').on('click', function(){
       $(this).hide();
     });
 
-    $('.back-button').show().transition({
+    backButton.show().transition({
       'opacity' : '1'
     },500);
 
@@ -303,7 +305,7 @@ $('.sign-up').on('click', function(){
   if( loginStage == 0 ){
 
     loginStage = -1;
-    $('.inevio-logo').transition({
+    inevioLogo.transition({
       'top': '0px',
     },500);
 
@@ -343,7 +345,7 @@ $('.sign-up').on('click', function(){
 
     });
 
-    $('.back-button').show().transition({
+    backButton.show().transition({
       'opacity' : '1'
     },500);
 
@@ -417,7 +419,7 @@ $('.recover').on('click', function(){
 
 });
 
-$('.back-button').on('click', function(){
+backButton.on('click', function(){
 
   back( loginStage );
 
@@ -432,7 +434,7 @@ $('.more').on('click', function(){
 
   initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
   if( $('.start .inevio-logo').length == 0 ){
-    $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
+    $('.start').append( inevioLogo.clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
   }
 
   $('.start .inevio-logo.white').show().transition({
@@ -516,7 +518,7 @@ $('.less').on('click', function(){
 $('body').on( 'swiperight panright', function(){
 
   if( !menuMode ){
-    $('.back-button').click();
+    backButton.click();
   }else{
     menuSwipe(-1);
   }
@@ -526,7 +528,7 @@ $('body').on( 'swiperight panright', function(){
 .on( 'swipeleft panleft', function(){
 
   if( !menuMode ){
-    //$('.back-button').click();
+    //backButton.click();
   }else{
     menuSwipe(1);
   }
@@ -536,7 +538,7 @@ $('body').on( 'swiperight panright', function(){
 /*$('.bullet-2').on('click', function(){
 
   if( !menuMode ){
-    $('.back-button').click();
+    backButton.click();
   }else{
     menuSwipe(-1);
   }
@@ -546,7 +548,7 @@ $('body').on( 'swiperight panright', function(){
 $('.bullet-3').on('click', function(){
 
   if( !menuMode ){
-    $('.back-button').click();
+    backButton.click();
   }else{
     menuSwipe(1);
   }
