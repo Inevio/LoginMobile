@@ -178,50 +178,60 @@ var back = function( stage ){
 
 var menuSwipe = function( value ){
 
-  console.log(value);
-  if( value === 1 ){
+  if( !transitioning ){
 
-    if( menuStage !== 3 ){
+    if( value === 1 ){
 
-      menuStage++;
+      if( menuStage !== 3 ){
 
-      $('.menu-content.active').transition({
-        'left' : '-100%'
-      },500,function(){
-        $(this).removeClass('active');
-        $(this).hide();
-        $('.bullet.active').removeClass('active');
-        $('.bullet-' + menuStage).addClass('active');
-      })
+        transitioning = true;
+        menuStage++;
 
-      $('.menu-content-' + menuStage).show().transition({
-        'left' : '0'
-      },500,function(){
-        $(this).addClass('active');
-      })
+        $('.menu-content.active').stop().clearQueue().transition({
+          'left' : '-100%'
+        },500,function(){
 
-    }
+          $(this).removeClass('active');
+          $(this).hide();
+          $('.bullet.active').removeClass('active');
+          $('.bullet-' + menuStage).addClass('active');
+          transitioning = false;
 
-  }else{
+        })
 
-    if( menuStage !== 1 ){
+        $('.menu-content-' + menuStage).show().stop().clearQueue().transition({
+          'left' : '0'
+        },500,function(){
+          $(this).addClass('active');
+        })
 
-      menuStage--;
-      $('.menu-content.active').transition({
-        'left' : '100%'
-      },500,function(){
-        transitioning = false;
-        $(this).removeClass('active');
-        $(this).hide();
-        $('.bullet.active').removeClass('active');
-        $('.bullet-' + menuStage).addClass('active');
-      })
+      }
 
-      $('.menu-content-' + menuStage).show().transition({
-        'left' : '0'
-      },500,function(){
-        $(this).addClass('active');
-      })
+    }else{
+
+      if( menuStage !== 1 ){
+
+        transitioning = true;
+        menuStage--;
+        $('.menu-content.active').stop().clearQueue().transition({
+          'left' : '100%'
+        },500,function(){
+
+          $(this).removeClass('active');
+          $(this).hide();
+          $('.bullet.active').removeClass('active');
+          $('.bullet-' + menuStage).addClass('active');
+          transitioning = false;
+
+        })
+
+        $('.menu-content-' + menuStage).show().stop().clearQueue().transition({
+          'left' : '0'
+        },500,function(){
+          $(this).addClass('active');
+        })
+
+      }
 
     }
 
