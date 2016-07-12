@@ -37,6 +37,8 @@ var createCache = function(){
 
 var back = function( stage ){
 
+  $('.input.error').removeClass('error');
+
   if( stage == 1 ){
 
     loginStage = -1;
@@ -507,6 +509,8 @@ $('.less').on('click', function(){
     $(this).hide();
   });
 
+  $('.menu-screen .header figure').hide();
+
 });
 
 $('body').on( 'swiperight panright', function(){
@@ -522,7 +526,7 @@ $('body').on( 'swiperight panright', function(){
 .on( 'swipeleft panleft', function(){
 
   if( !menuMode ){
-    $('.back-button').click();
+    //$('.back-button').click();
   }else{
     menuSwipe(1);
   }

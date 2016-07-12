@@ -325,7 +325,7 @@
   width: 100%;
   height: ~'calc(100% - 134px)';
   text-align: center;
-  position: relative;
+  position: absolute;
   left: 0;
   float: left;
 }
