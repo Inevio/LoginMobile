@@ -215,7 +215,7 @@ var menuSwipe = function( value ){
 
 }
 
-win.on('click', '.sign-in', function(){
+$('.sign-in').on('click', function(){
 
   if( loginStage == 0 ){
 
@@ -274,9 +274,9 @@ win.on('click', '.sign-in', function(){
 
   }
 
-})
+});
 
-.on('click', '.sign-up', function(){
+$('.sign-up').on('click', function(){
 
   if( loginStage == 0 ){
 
@@ -325,9 +325,9 @@ win.on('click', '.sign-in', function(){
 
   }
 
-})
+});
 
-.on('click', '.forgot', function(){
+$('.forgot').on('click', function(){
 
   loginStage = -1;
   $('.passwd-recover').show().transition({
@@ -352,7 +352,7 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on('click', '.recover', function(){
+$('.recover').on('click', function(){
 
   console.log('recover');
   if( $('.login.inputs .email').find('input').val() === 'a' ){
@@ -391,15 +391,15 @@ win.on('click', '.sign-in', function(){
     $('.passwd-recover').addClass('error').text('Email incorrecto');
   }
 
-})
+});
 
-.on('click', '.back-button', function(){
+$('.back-button').on('click', function(){
 
   back( loginStage );
 
-})
+});
 
-.on('click', '.more', function(){
+$('.more').on('click', function(){
 
   initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
   if( $('.start .inevio-logo').length == 0 ){
@@ -442,9 +442,9 @@ win.on('click', '.sign-in', function(){
     'bottom' : '0'
   },1000);
 
-})
+});
 
-.on('click', '.less', function(){
+$('.less').on('click', function(){
 
   $('.start .inevio-logo.white').show().transition({
     'margin-left' : initialMarginLeftLogo,
@@ -480,9 +480,10 @@ win.on('click', '.sign-in', function(){
     $(this).hide();
   });
 
-})
+});
 
-.on('key', 'enter', function(){
+/*
+win.key( 'enter', function(){
 
   console.log('texto');
   if( loginStage === 0 || loginStage === 1 ){
@@ -493,7 +494,8 @@ win.on('click', '.sign-in', function(){
     $('.recover').click();
   }
 
-})
+});
+*/
 
 /*.on( 'swiperight panright', function(){
 
@@ -515,7 +517,7 @@ win.on('click', '.sign-in', function(){
 
 })*/
 
-.on('click', '.bullet-2', function(){
+$('.bullet-2').on('click', function(){
 
   if( !menuMode ){
     $('.back-button').click();
@@ -523,9 +525,9 @@ win.on('click', '.sign-in', function(){
     menuSwipe(-1);
   }
 
-})
+});
 
-.on('click', '.bullet-3', function(){
+$('.bullet-3').on('click', function(){
 
   if( !menuMode ){
     $('.back-button').click();
