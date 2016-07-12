@@ -1,18 +1,18 @@
-
 var win = $(this);
 var contentContainer = $('.content-container');
 var initialMarginTopLogo = $('.inevio-logo').css('top');
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
 var initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
 var initialButtonWidth = $('.login-buttons .accept').css('width');
-var initialHeight = contentContainer.outerHeight(false);
+var initialHeight = contentContainer.height();
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
 var mc;
 var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var transitioning = false;
-
+var used = false;
+/*
 var intervalo = setInterval( function(){
   if( typeof Hammer !== 'undefined' ){
     clearInterval( intervalo );
@@ -22,7 +22,17 @@ var intervalo = setInterval( function(){
       domEvents:true
     });
   }
-},50)
+},50);
+*/
+var createCache = function(){
+
+  initialMarginTopLogo = $('.inevio-logo').css('top');
+  initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
+  initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
+  initialButtonWidth = $('.login-buttons .accept').css('width');
+  initialHeight = contentContainer.height();
+
+}
 
 
 var back = function( stage ){
@@ -217,6 +227,11 @@ var menuSwipe = function( value ){
 
 $('.sign-in').on('click', function(){
 
+  if( !used ){
+    used = true;
+    createCache();
+  }
+
   if( loginStage == 0 ){
 
     loginStage = -1;
@@ -278,6 +293,11 @@ $('.sign-in').on('click', function(){
 
 $('.sign-up').on('click', function(){
 
+  if( !used ){
+    used = true;
+    createCache();
+  }
+
   if( loginStage == 0 ){
 
     loginStage = -1;
@@ -295,6 +315,8 @@ $('.sign-up').on('click', function(){
       },250);
 
     });
+
+    initialHeight = contentContainer.height();
 
     contentContainer.transition({
       'height' : initialHeight + 73
@@ -401,6 +423,11 @@ $('.back-button').on('click', function(){
 
 $('.more').on('click', function(){
 
+  if( !used ){
+    used = true;
+    createCache();
+  }
+
   initialMarginLeftLogo = $('.login-screen .inevio-logo.dark').css('margin-left');
   if( $('.start .inevio-logo').length == 0 ){
     $('.start').append( $('.inevio-logo').clone().css({'top':'185px','background-size':'cover', 'margin-left': $('.inevio-logo.dark').css('margin-left') }) );
@@ -482,22 +509,7 @@ $('.less').on('click', function(){
 
 });
 
-/*
-win.key( 'enter', function(){
-
-  console.log('texto');
-  if( loginStage === 0 || loginStage === 1 ){
-    $('.sign-in').click();
-  }else if( loginStage === 2 ){
-    $('.sign-up').click();
-  }else if( loginStage === 3 ){
-    $('.recover').click();
-  }
-
-});
-*/
-
-/*.on( 'swiperight panright', function(){
+$('body').on( 'swiperight panright', function(){
 
   if( !menuMode ){
     $('.back-button').click();
@@ -515,9 +527,9 @@ win.key( 'enter', function(){
     menuSwipe(1);
   }
 
-})*/
+});
 
-$('.bullet-2').on('click', function(){
+/*$('.bullet-2').on('click', function(){
 
   if( !menuMode ){
     $('.back-button').click();
@@ -534,5 +546,4 @@ $('.bullet-3').on('click', function(){
   }else{
     menuSwipe(1);
   }
-
-});
+});*/
