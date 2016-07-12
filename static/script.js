@@ -459,14 +459,22 @@ win.on('click', '.sign-in', function(){
   }
 
   if( $('.start .inevio-logo').length == 0 ){
-    $('.start').append( inevioLogo.clone().css({'top': (initialMarginTopLogo + initialTopLogo),'background-size':'cover', 'margin-left':'0px', 'left': $('.inevio-logo.dark').css('margin-left') }).show() );
+    $('.start').append( inevioLogo.clone().css({'background-size':'cover', 'margin-left':'0px', 'top':'0px' }).show() );
   }
+
+  var x = parseInt( $('.content-container .inevio-logo.dark').css('margin-left') );
+  var y = parseInt(initialMarginTopLogo + initialTopLogo);
+
+  $('.start .inevio-logo').transition({
+    'x' : x,
+    'y' : y
+  },0);
 
   $('.start .inevio-logo.white').show().transition({
     'width': '108px',
     'height': '21px',
-    'top': '20px',
-    'left': '20px',
+    'y': '20px',
+    'x': '20px',
     'opacity' : '0.2'
   },1000,function(){
     menuMode = true;
@@ -477,8 +485,8 @@ win.on('click', '.sign-in', function(){
   $('.start .inevio-logo.dark').show().transition({
     'width': '108px',
     'height': '21px',
-    'top': '20px',
-    'left': '20px',
+    'y': '20px',
+    'x': '20px',
     'opacity' : '1'
   },1000,function(){
     $(this).hide();
@@ -487,7 +495,7 @@ win.on('click', '.sign-in', function(){
   $('.login-screen .inevio-logo').hide();
 
   $('.menu-screen').show().transition({
-    'bottom' : '0'
+    'y' : '0'
   },1000);
 
 })
@@ -497,8 +505,8 @@ win.on('click', '.sign-in', function(){
   $('.start .inevio-logo.white').show().transition({
     'width': $('.login-screen .inevio-logo.white').css('width'),
     'height': $('.login-screen .inevio-logo.white').css('height'),
-    'left': initialMarginLeftLogo,
-    'top': initialMarginTopLogo + initialTopLogo,
+    'x': initialMarginLeftLogo,
+    'y': initialMarginTopLogo + initialTopLogo,
     'opacity' : '1'
   },1000,function(){
     menuMode = false;
@@ -509,8 +517,8 @@ win.on('click', '.sign-in', function(){
   $('.start .inevio-logo.dark').show().transition({
     'width': $('.login-screen .inevio-logo.white').css('width'),
     'height': $('.login-screen .inevio-logo.white').css('height'),
-    'top': initialMarginTopLogo + initialTopLogo,
-    'left': initialMarginLeftLogo,
+    'y': initialMarginTopLogo + initialTopLogo,
+    'x': initialMarginLeftLogo,
     'opacity' : '0'
   },1000,function(){
     $(this).hide();
@@ -519,7 +527,7 @@ win.on('click', '.sign-in', function(){
   $('.menu-screen .header figure').hide();
 
   $('.menu-screen').transition({
-    'bottom' : '-100%'
+    'y' : '100%'
   },1000,function(){
     $(this).hide();
   });
