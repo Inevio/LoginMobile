@@ -52,7 +52,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  transform: translate3d(0px, 50px, 0px);
+  top: 50px;
   margin: 0px auto 0px auto;
   z-index: 1;
 }
@@ -410,7 +410,7 @@
     width: 215px;
     height: 42px;
     background-size: cover;
-    transform: translate3d(0px, 24px, 0px);
+    top: 24px;
   }
   .login-buttons,
   .inputs {
