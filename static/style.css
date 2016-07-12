@@ -1,30 +1,32 @@
-.login-screen{
+.login-screen {
   bottom: 0;
-  background-image: url("@static/login.jpg");
+  background-image: url('@static/login.jpg');
   background-position: right;
   background-size: cover;
 }
-
-.back-button{
+.start .inevio-logo {
+  display: none;
+}
+.back-button {
   width: 75px;
-  height: 17px;
+  height: 27px;
   position: relative;
-  top: 30px;
+  top: 20px;
   left: 16px;
   cursor: pointer;
   display: none;
   opacity: 0;
 }
-
-.back-button span{
+.back-button span {
+  margin-top: 4px;
   font-family: Lato;
   font-size: 17px;
   color: #ffffff;
   float: right;
   cursor: pointer;
 }
-
-.back-button figure{
+.back-button figure {
+  margin-top: 5px;
   width: 15px;
   height: 16px;
   background-image: url('@static/back.png');
@@ -32,8 +34,7 @@
   display: inline-block;
   cursor: pointer;
 }
-
-.content-container{
+.content-container {
   display: inline-block;
   margin: auto;
   position: absolute;
@@ -43,8 +44,7 @@
   bottom: 0;
   height: 397px;
 }
-
-.inevio-logo{
+.inevio-logo {
   background-image: url("@static/logo.png");
   width: 251px;
   height: 49px;
@@ -52,17 +52,15 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50px;
+  transform: translate3d(0px, 50px, 0px);
   margin: 0px auto 0px auto;
   z-index: 1;
 }
-
-.inevio-logo.dark{
+.inevio-logo.dark {
   background-image: url("@static/logo-dark.png");
   opacity: 0;
 }
-
-.passwd-recover{
+.passwd-recover {
   display: none;
   font-family: Lato;
   font-size: 15px;
@@ -74,12 +72,10 @@
   left: 0;
   right: 0;
 }
-
-.passwd-recover.error{
+.passwd-recover.error {
   color: #e85c5c;
 }
-
-.slogan{
+.slogan {
   font-family: Lato;
   font-size: 17px;
   color: #fefefe;
@@ -87,95 +83,97 @@
   text-align: center;
   line-height: 30px;
   position: relative;
-  left: 0;
+  transform: translate3d(0%, 0px, 0px);
   max-width: 80%;
   top: 99px;
 }
+.animated {
+  /*transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);*/
 
-.login-buttons{
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+.login-buttons {
   margin: 0px auto 0 auto;
   width: 314px;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  text-align: center;
 }
-
-.login-buttons .ui-btn{
+.login-buttons .ui-btn {
   width: 145px;
   height: 58px;
   border-radius: 58px;
   outline: none;
   background-image: none;
 }
-
-.login-buttons .ui-btn.accept{
+.login-buttons .ui-btn.accept {
   background-color: #60b25e;
 }
-
-.login-buttons .ui-btn.accept:hover{
+.login-buttons .ui-btn.accept:hover {
   box-shadow: none;
 }
-
-.login-buttons .ui-btn.accept:active{
+.login-buttons .ui-btn.accept:active {
   background-color: #3d903b;
   background-image: none;
   box-shadow: none;
 }
-
-.login-buttons .ui-btn.sign-up{
+.login-buttons .ui-btn.sign-up {
   margin-right: 21px;
+  float: left;
 }
-
-.login-buttons .ui-btn.transparent{
-  width: 145px;
-  height: 58px;
+.login-buttons .ui-btn.transparent {
   border: 2px solid #a9a9a7;
   background-color: transparent;
   background-image: none;
   float: right;
 }
-
-.login-buttons .ui-btn.transparent span{
+.login-buttons .ui-btn.transparent span {
   color: #fefefe;
 }
-
-.login-buttons .ui-btn span{
+.login-buttons .ui-btn span {
   font-size: 19px;
   line-height: 20px;
 }
-
-.inputs{
+.inputs {
   width: 312px;
   position: relative;
-  left: 100%;
   display: none;
   margin: 0px auto 0px auto;
-  top: 50px;
 }
-
-.inputs.login{
-  margin-top: 66px;
+.inputs.login {
+  margin-top: 116px;
+  transform: translate3d(100%, 0px, 0px);
 }
-
-.inputs.register{
-  margin-top: 60px;
+.inputs.register {
+  margin-top: 110px;
+  transform: translate3d(100%, 0px, 0px);
 }
-
-.inputs .input{
-  width: 308px;
+.inputs .input {
+  width: ~'calc(100% - 4px)';
   height: 54px;
   border: 2px solid #a9a9a7;
   border-radius: 58px;
   background-color: transparent;
   background-image: none;
 }
-
-.inputs .input.error{
+.inputs .input.error {
   border: 2px solid #e85c5c;
 }
-
-.inputs input{
+.inputs input {
   background-color: transparent;
   margin: 17px 32px 0px 32px;
   width: ~'calc(100% - 64px)';
@@ -183,37 +181,40 @@
   font-family: Lato;
   color: #ffffff;
 }
+.inputs input::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
 
-.inputs input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color: #ffffff;
 }
-.inputs input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #ffffff;
-}
-.inputs input::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #ffffff;
-}
-.inputs input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #ffffff;
-}
+.inputs input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
 
-.login.inputs input:-webkit-autofill{
+  color: #ffffff;
+}
+.inputs input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+
+  color: #ffffff;
+}
+.inputs input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+
+  color: #ffffff;
+}
+.login.inputs input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
-
-.inputs .username, .inputs .email{
+.inputs .username,
+.inputs .email {
   margin-bottom: 35px;
 }
-
-.recover-passwd-success{
+.recover-passwd-success {
   display: none;
   position: relative;
-  left: 100%;
+  transform: translate3d(100%, 50px, 0px);
   text-align: center;
-  top: 50px;
 }
-
-.recover-passwd-success figure{
+.recover-passwd-success figure {
   width: 138px;
   height: 138px;
   background-size: 138px 138px;
@@ -222,36 +223,33 @@
   margin-bottom: 45px;
   margin-top: 50px;
 }
-
-.recover-passwd-success .title{
+.recover-passwd-success .title {
   color: #ffffff;
   font-size: 19px;
   font-weight: bold;
   font-family: Lato;
 }
-
-.recover-passwd-success .text{
-  margin-top: 27px;
+.recover-passwd-success .text {
+  max-width: 85%;
+  margin: 27px auto 0 auto;
   color: #d2dce2;
   font-size: 15px;
   font-family: Lato;
 }
-
-.more{
+.more {
   width: 167px;
-	height: 42px;
-	-webkit-border-radius: 12px 12px 0 0;
-	-moz-border-radius: 12px 12px 0 0;
-	border-radius: 12px 12px 0 0;
-	background-color: rgba(36, 41, 47, 0.5);
+  height: 42px;
+  -webkit-border-radius: 12px 12px 0 0;
+  -moz-border-radius: 12px 12px 0 0;
+  border-radius: 12px 12px 0 0;
+  background-color: rgba(36, 41, 47, 0.5);
   position: absolute;
   bottom: 0;
-  left: ~"calc(50% - 83px)";
+  left: ~'calc(50% - 83px)';
   cursor: pointer;
 }
-
-.more figure{
-  float:left;
+.more figure {
+  float: left;
   width: 14px;
   height: 8px;
   background-image: url("@static/arrow.png");
@@ -260,8 +258,7 @@
   margin: 20px 19px 0px 19px;
   cursor: pointer;
 }
-
-.more span{
+.more span {
   float: left;
   font-family: Lato;
   font-size: 15px;
@@ -269,40 +266,36 @@
   margin-top: 16px;
   cursor: pointer;
 }
-
-.forgot{
+.forgot {
   display: none;
   position: absolute;
   bottom: 24px;
   font-family: Lato;
   font-size: 15px;
   color: #ffffff;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   left: 0;
   right: 0;
   text-align: center;
   cursor: pointer;
 }
-
-.login-screen, .menu-screen{
+.login-screen,
+.menu-screen {
   width: 100%;
   height: 100%;
   position: absolute;
 }
-
-.menu-screen{
-  bottom: -100%;
+.menu-screen {
+  transform: translate3d(0px, 100%, 0px);
   background-color: #f8f8f9;
   display: none;
 }
-
-.menu-screen .header{
+.menu-screen .header {
   width: 100%;
   height: 62px;
 }
-
-.menu-screen .header figure{
+.menu-screen .header figure {
   width: 108px;
   height: 21px;
   background-image: url('@static/logo-dark.png');
@@ -311,8 +304,7 @@
   margin: 20px 0px 0px 20px;
   display: none;
 }
-
-.menu-screen .header span{
+.menu-screen .header span {
   float: right;
   font-size: 15px;
   color: #889399;
@@ -320,34 +312,41 @@
   margin: 22px 20px 0px 0px;
   font-family: Lato;
 }
-
-.menu-screen .menu-content{
+.menu-content-container {
   width: 100%;
   height: ~'calc(100% - 134px)';
+  overflow: hidden;
+}
+.menu-screen-container {
+  width: 300%;
+  height: 100%;
+}
+.menu-screen .menu-content {
+  width: 100%;
+  height: 100%;
   text-align: center;
   position: absolute;
-  left: 0;
   float: left;
 }
-
-.menu-screen .menu-image{
+.menu-screen .menu-image {
   width: 100%;
   height: ~'calc(100% - 120px)';
 }
-
-.menu-screen .menu-image:before{
+.menu-screen .menu-image:before {
   content: ' ';
   display: inline-block;
-  vertical-align: middle; /* vertical alignment of the inline element */
+  vertical-align: middle;
+  /* vertical alignment of the inline element */
+
   height: 100%;
 }
-
-.menu-screen .menu-content-2, .menu-screen .menu-content-3{
-  left: 100%;
-  display: none;
-}
-
-.menu-screen .menu-content-1 .menu-image figure{
+/*.menu-screen .menu-content{
+  transform: translate3d(0px, 0px, 0px);
+}*/
+/*.menu-screen .menu-content-3{
+  transform: translate3d(100%, 0px, 0px);
+}*/
+.menu-screen .menu-content-1 .menu-image figure {
   width: 186px;
   height: 220px;
   display: inline-block;
@@ -355,8 +354,8 @@
   vertical-align: middle;
   background-size: 186px 220px;
 }
-
-.menu-screen .menu-content-2 .menu-image figure, .menu-screen .menu-content-3 .menu-image figure{
+.menu-screen .menu-content-2 .menu-image figure,
+.menu-screen .menu-content-3 .menu-image figure {
   width: 260px;
   height: 178px;
   display: inline-block;
@@ -364,43 +363,37 @@
   vertical-align: middle;
   background-size: 260px 178px;
 }
-
-.menu-screen .title{
+.menu-screen .title {
   font-size: 21px;
   font-weight: bold;
   color: #545f65;
   max-width: 80%;
   margin: 0 auto 0 auto;
 }
-
-.menu-screen .separator{
+.menu-screen .separator {
   width: 33px;
   height: 3px;
   background-color: #60b25e;
   margin: 15px auto 20px auto;
 }
-
-.menu-screen .text{
+.menu-screen .text {
   font-size: 15px;
   color: #889399;
   max-width: 80%;
   margin: 0 auto 0 auto;
 }
-
-.menu-screen .footer{
+.menu-screen .footer {
   height: 72px;
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
-
-.menu-screen .footer .bullets{
+.menu-screen .footer .bullets {
   margin-top: 30px;
   display: inline-block;
 }
-
-.menu-screen .footer .bullet{
+.menu-screen .footer .bullet {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -409,13 +402,85 @@
   margin-right: 12px;
   cursor: pointer;
 }
-
-.menu-screen .footer .bullet.active{
+.menu-screen .footer .bullet.active {
   border: 2px solid #889399;
   background-color: #889399;
   cursor: default;
 }
-
-.menu-screen .footer .bullet:last-child{
+.menu-screen .footer .bullet:last-child {
   margin-right: 0px;
+}
+@media all and (max-width: 359px) {
+  .content-container {
+    height: 288px;
+  }
+  .inevio-logo {
+    width: 215px;
+    height: 42px;
+    background-size: cover;
+    transform: translate3d(0px, 24px, 0px);
+  }
+  .login-buttons,
+  .inputs {
+    width: 266px;
+  }
+  .inputs .input {
+    height: 48px;
+  }
+  .inputs.login {
+    margin-top: 78px;
+  }
+  .inputs.register {
+    margin-top: 68px;
+  }
+  .inputs .username,
+  .inputs .email {
+    margin-bottom: 30px;
+  }
+  .inputs input {
+    font-size: 17px;
+    margin: 15px 32px 0px 32px;
+  }
+  .slogan {
+    font-size: 15px;
+    line-height: 23px;
+    margin: 0px auto 0 auto;
+  }
+  .login-buttons .ui-btn {
+    width: 121px;
+    height: 49px;
+  }
+  .login-buttons .ui-btn span {
+    font-size: 17px;
+    line-height: 18px;
+  }
+  .login-buttons .ui-btn.sign-up {
+    margin-right: 18px;
+  }
+  .passwd-recover {
+    font-size: 13px;
+    top: 55px;
+  }
+  .menu-screen .menu-content-1 .menu-image figure {
+    width: 151px;
+    height: 186px;
+    background-size: cover;
+  }
+  .menu-screen .title {
+    font-size: 17px;
+  }
+  .menu-screen .text {
+    font-size: 13px;
+    line-height: 1.2em;
+  }
+  .recover-passwd-success figure {
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  .recover-passwd-success .title {
+    font-size: 15px;
+  }
+  .recover-passwd-success .text {
+    font-size: 13px;
+  }
 }
