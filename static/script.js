@@ -181,12 +181,12 @@ var menuSwipe = function( value ){
       if( menuStage !== 3 ){
 
         transitioning = true;
+        menuStage++;
 
         $('.menu-content.active').transition({
           'left' : '-100%'
         },500,function(){
 
-          menuStage++;
           $(this).removeClass('active');
           $(this).hide();
           $('.bullet.active').removeClass('active');
