@@ -1,8 +1,7 @@
 var win = $('body');
 var contentContainer = $('.content-container');
 var bodyWidth = win.css('width');
-var bodyHeight = win.css('height');
-var initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
+//var initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
 var initialMarginTopLogo = parseInt( $('.content-container').css('margin-top') ) || parseInt( $('.content-container').css('top') ) ;
 var initialTopLogo = parseInt( $('.login-screen .inevio-logo.dark').css('top') );
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
@@ -12,8 +11,6 @@ var initialHeight = contentContainer.height();
 var inevioLogo = $('.inevio-logo');
 var backButton = $('.back-button');
 var loginStage = 0;// 0 = intro, 1=sign-in, 2=sign-up, 3=recover 4=recover-success, -1 transition
-var hammerJS;
-var hammerLoaded = false;
 var menuMode = false;
 var menuStage = 1;
 var lowResMode = false;
@@ -23,18 +20,6 @@ var transitioning = false;
 if( parseInt( win.css('width') ) < 360 ){
   lowResMode = true;
 }
-
-/*var intervalo = setInterval( function(){
-
-  if( typeof Hammer !== 'undefined' ){
-    clearInterval( intervalo );
-    hammerLoaded = true;
-    hammerJS = new Hammer(win[0] , {
-      domEvents:true
-    });
-    hammerJS.get('swipe').set({ direction: Hammer.DIRECTION_ALL })
-  }
-},50);*/
 
 var createCache = function(){
 
@@ -216,7 +201,6 @@ var menuSwipe = function( value ){
           $(this).addClass('active');
         });
 
-
       }
 
     }else{
@@ -249,10 +233,9 @@ var menuSwipe = function( value ){
 
   }
 
+};
 
-}
-
-win.on('click', '.sign-in', function(){
+$('.sign-in').on('click', function(){
 
   if( !used ){
    used = true;
@@ -314,11 +297,51 @@ win.on('click', '.sign-in', function(){
       $('.login.inputs .input').addClass('error');
     }
 
+  }else if( loginStage == 3 ){
+
+    console.log('recover');
+    if( $('.login.inputs .email').find('input').val() === 'a' ){
+
+      loginStage = -1;
+      $('.login.inputs .email').removeClass('error');
+      $('.passwd-recover').removeClass('error').text('Recover password');
+
+      $('.passwd-recover').transition({
+        'opacity' : '0'
+      },500,function(){
+        $(this).hide();
+      });
+
+      $('.inputs.login').transition({
+        'x' : '-' + bodyWidth
+      },250,function(){
+
+        $(this).hide();
+        $('.recover-passwd-success').show().transition({
+          'x' : '0',
+          'y' : '50px'
+        },250,function(){
+          loginStage = 4;
+        })
+
+      });
+
+      $('.login-buttons').transition({
+        'x' : '-' + bodyWidth
+      },500,function(){
+        $(this).hide();
+      });
+
+    }else{
+      $('.login.inputs .email').addClass('error');
+      $('.passwd-recover').addClass('error').text('Email incorrecto');
+    }
+
   }
 
-})
+});
 
-.on('click', '.sign-up', function(){
+$('.sign-up').on('click', function(){
 
   if( !used ){
    used = true;
@@ -372,9 +395,9 @@ win.on('click', '.sign-in', function(){
 
   }
 
-})
+});
 
-.on('click', '.forgot', function(){
+$('.forgot').on('click', function(){
 
   $('.login-screen .error').removeClass('error');
   loginStage = -1;
@@ -405,53 +428,11 @@ win.on('click', '.sign-in', function(){
 
 })
 
-.on('click', '.recover', function(){
-
-  console.log('recover');
-  if( $('.login.inputs .email').find('input').val() === 'a' ){
-
-    loginStage = -1;
-    $('.login.inputs .email').removeClass('error');
-    $('.passwd-recover').removeClass('error').text('Recover password');
-
-    $('.passwd-recover').transition({
-      'opacity' : '0'
-    },500,function(){
-      $(this).hide();
-    });
-
-    $('.inputs.login').transition({
-      'x' : '-' + bodyWidth
-    },250,function(){
-
-      $(this).hide();
-      $('.recover-passwd-success').show().transition({
-        'x' : '0',
-        'y' : '50px'
-      },250,function(){
-        loginStage = 4;
-      })
-
-    });
-
-    $('.login-buttons').transition({
-      'x' : '-' + bodyWidth
-    },500,function(){
-      $(this).hide();
-    });
-
-  }else{
-    $('.login.inputs .email').addClass('error');
-    $('.passwd-recover').addClass('error').text('Email incorrecto');
-  }
-
-})
-
-.on('click', '.back-button', function(){
+$('.back-button').on('click', function(){
   back( loginStage );
 })
 
-.on('click', '.more', function(){
+$('.more').on('click', function(){
 
   if( !used ){
    used = true;
@@ -498,9 +479,9 @@ win.on('click', '.sign-in', function(){
     'y' : '0'
   },1000);
 
-})
+});
 
-.on('click', '.less', function(){
+$('.less').on('click', function(){
 
   $('.start .inevio-logo.white').show().transition({
     'width': $('.login-screen .inevio-logo.white').css('width'),
@@ -532,9 +513,11 @@ win.on('click', '.sign-in', function(){
     $(this).hide();
   });
 
-})
+});
 
-.on( 'swipeleft', function(){
+$('body').on( 'swipeleft', function(){
+
+  $('body').hide();
 
   if( menuMode ){
     menuSwipe(1);
@@ -543,6 +526,8 @@ win.on('click', '.sign-in', function(){
 })
 
 .on( 'swiperight', function(){
+
+  $('body').hide();
 
   if( menuMode ){
     menuSwipe(-1);
