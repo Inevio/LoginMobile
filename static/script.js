@@ -459,7 +459,7 @@ $('.more').on('click', function(){
     'y': '20px',
     'x': '20px',
     'opacity' : '0.2'
-  },1000,function(){
+  },500,function(){
     menuMode = true;
     $(this).hide();
     $('.menu-screen .header figure').show();
@@ -471,7 +471,7 @@ $('.more').on('click', function(){
     'y': '20px',
     'x': '20px',
     'opacity' : '1'
-  },1000,function(){
+  },500,function(){
     $(this).hide();
   });
 
@@ -479,7 +479,7 @@ $('.more').on('click', function(){
 
   $('.menu-screen').show().transition({
     'y' : '0'
-  },1000);
+  },500);
 
 });
 
@@ -491,7 +491,7 @@ $('.less').on('click', function(){
     'x': initialMarginLeftLogo,
     'y': initialMarginTopLogo + initialTopLogo,
     'opacity' : '1'
-  },1000,function(){
+  },500,function(){
     menuMode = false;
     $(this).hide();
     $('.login-screen .inevio-logo').show();
@@ -503,7 +503,7 @@ $('.less').on('click', function(){
     'y': initialMarginTopLogo + initialTopLogo,
     'x': initialMarginLeftLogo,
     'opacity' : '0'
-  },1000,function(){
+  },500,function(){
     $(this).hide();
   });
 
@@ -511,7 +511,7 @@ $('.less').on('click', function(){
 
   $('.menu-screen').transition({
     'y' : '100%'
-  },1000,function(){
+  },500,function(){
     $(this).hide();
   });
 
@@ -537,7 +537,7 @@ $('body').on( 'swipeleft', function(){
 
 .on( 'swipeup', function(){
 
-  if( !menuMode ){
+  if( !menuMode && loginStage == 0 ){
     $('.more').click();
   }
 
@@ -570,9 +570,7 @@ var login = function(){
         }
 
         server = server.split('.').slice( 1 );
-
         server.unshift( name );
-
         return window.location.protocol + '//' + server.join('.') + '/';
 
     };
@@ -612,18 +610,6 @@ var login = function(){
       });
 
     }
-
-    /*.on( 'keydown', 'input', function( e ){
-
-        if( e.keyCode === 13 ){
-
-            e.preventDefault();
-
-            form.find('input[type="submit"]').click();
-
-        }
-
-    });*/
 
     /*if( window.devicePixelRatio && window.devicePixelRatio > 1 ){
         $.post( _server('') + 'pixel', { pixelRatio : window.devicePixelRatio } );
