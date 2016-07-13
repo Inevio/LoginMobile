@@ -175,7 +175,6 @@ var menuSwipe = function( value ){
 
   if( !transitioning ){
 
-    console.log(value);
     if( value === 1 ){
 
       if( menuStage !== 3 ){
@@ -301,7 +300,6 @@ $('.sign-in').on('click', function(){
 
   }else if( loginStage == 3 ){
 
-    console.log('recover');
     if( $('.login.inputs .email').find('input').val() === 'a' ){
 
       loginStage = -1;
@@ -368,7 +366,6 @@ $('.sign-up').on('click', function(){
 
     });
 
-    console.log(initialHeight);
     contentContainer.transition({
       'height' : initialHeight + 73
     },500);
