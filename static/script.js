@@ -19,7 +19,7 @@ var transitioning = false;
 
 if( parseInt( win.css('width') ) < 360 ){
   lowResMode = true;
-}
+};
 
 var createCache = function(){
 
@@ -31,7 +31,7 @@ var createCache = function(){
   initialButtonWidth = $('.login-buttons .accept').css('width');
   initialHeight = contentContainer.height();
 
-}
+};
 
 var back = function( stage ){
 
@@ -169,7 +169,7 @@ var back = function( stage ){
 
   }
 
-}
+};
 
 var menuSwipe = function( value ){
 
@@ -291,11 +291,13 @@ $('.sign-in').on('click', function(){
 
   }else if( loginStage == 1 ){
 
-    if( $('.login.inputs .username').find('input').val() === 'a' ){
+    /*if( $('.login.inputs .username').find('input').val() === 'a' ){
       $('.login.inputs .input').removeClass('error');
     }else{
       $('.login.inputs .input').addClass('error');
-    }
+    }*/
+
+    login();
 
   }else if( loginStage == 3 ){
 
@@ -426,11 +428,11 @@ $('.forgot').on('click', function(){
 
   });
 
-})
+});
 
 $('.back-button').on('click', function(){
   back( loginStage );
-})
+});
 
 $('.more').on('click', function(){
 
@@ -517,8 +519,6 @@ $('.less').on('click', function(){
 
 $('body').on( 'swipeleft', function(){
 
-  $('body').hide();
-
   if( menuMode ){
     menuSwipe(1);
   }
@@ -526,8 +526,6 @@ $('body').on( 'swipeleft', function(){
 })
 
 .on( 'swiperight', function(){
-
-  $('body').hide();
 
   if( menuMode ){
     menuSwipe(-1);
@@ -552,3 +550,83 @@ $('body').on( 'swipeleft', function(){
   }
 
 });
+
+var login = function(){
+
+    var _server = function( name ){
+
+        var server = window.location.host;
+
+        if( !name ){
+
+            if( server.indexOf('beta') !== -1 ){
+                name = 'beta';
+            }else{
+                name = 'www';
+            }
+
+        }else if( server.indexOf('beta') !== -1 ){
+            name += 'beta';
+        }
+
+        server = server.split('.').slice( 1 );
+
+        server.unshift( name );
+
+        return window.location.protocol + '//' + server.join('.') + '/';
+
+    };
+
+    var form = $('form.inputs.login');
+
+    /*form
+    .on( 'click', '.ui-checkbox', function(){
+
+        if( $( this ).hasClass('active') ){
+          $('.wz-login-remember-checkbox').attr( 'checked', true );
+        }else{
+          $('.wz-login-remember-checkbox').attr( 'checked', false );
+        }
+
+    })*/
+
+    if( form.find('input[name="user"]').val() && form.find('input[name="password"]').val() ){
+
+      $.ajax({
+
+        type    : 'post',
+        url     : 'https://www.inevio.com/login',
+        data    : form.serialize(),
+        success : function( data ){
+
+          if( data.state === 'CORRECT' ){
+
+            window.location = _server('');
+
+          }else{
+            //alert( wzLang.login.error );
+          }
+
+        }
+
+      });
+
+    }
+
+    /*.on( 'keydown', 'input', function( e ){
+
+        if( e.keyCode === 13 ){
+
+            e.preventDefault();
+
+            form.find('input[type="submit"]').click();
+
+        }
+
+    });*/
+
+    /*if( window.devicePixelRatio && window.devicePixelRatio > 1 ){
+        $.post( _server('') + 'pixel', { pixelRatio : window.devicePixelRatio } );
+    }*/
+
+};
