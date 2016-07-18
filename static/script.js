@@ -16,6 +16,13 @@ var menuStage = 1;
 var lowResMode = false;
 var used = false;
 var transitioning = false;
+var smallLogoTop = 20;
+
+console.log( device );
+if( device.platform == "iOS" ){
+  win.addClass('ios');
+  smallLogoTop = 30;
+}
 
 if( parseInt( win.css('width') ) < 360 ){
   lowResMode = true;
@@ -453,7 +460,7 @@ $('.more').on('click', function(){
   $('.start .inevio-logo.white').show().transition({
     'width': '108px',
     'height': '21px',
-    'y': '20px',
+    'y': smallLogoTop,
     'x': '20px',
     'opacity' : '0.2'
   },500,function(){
@@ -465,7 +472,7 @@ $('.more').on('click', function(){
   $('.start .inevio-logo.dark').show().transition({
     'width': '108px',
     'height': '21px',
-    'y': '20px',
+    'y': smallLogoTop,
     'x': '20px',
     'opacity' : '1'
   },500,function(){
@@ -591,6 +598,7 @@ var login = function(){
 
         type    : 'post',
         url     : 'https://www.inevio.com/login',
+
         data    : form.serialize(),
         success : function( data ){
 

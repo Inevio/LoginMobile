@@ -476,3 +476,15 @@
     font-size: 13px;
   }
 }
+
+.wz-view.ios{
+
+  .back-button{
+    top: 28px;
+  }
+
+  .menu-screen .header{
+    margin-top: 10px;
+  }
+
+}
