@@ -18,8 +18,8 @@ var used = false;
 var transitioning = false;
 var smallLogoTop = 20;
 
-console.log( device );
-if( device.platform == "iOS" ){
+if( device && device.platform == "iOS" ){
+  console.log( device );
   win.addClass('ios');
   smallLogoTop = 30;
 }
