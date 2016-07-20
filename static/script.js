@@ -557,40 +557,7 @@ $('body').on( 'swipeleft', function(){
 
 var login = function(){
 
-    var _server = function( name ){
-
-        var server = window.location.host;
-
-        if( !name ){
-
-            if( server.indexOf('beta') !== -1 ){
-                name = 'beta';
-            }else{
-                name = 'www';
-            }
-
-        }else if( server.indexOf('beta') !== -1 ){
-            name += 'beta';
-        }
-
-        server = server.split('.').slice( 1 );
-        server.unshift( name );
-        return window.location.protocol + '//' + server.join('.') + '/';
-
-    };
-
     var form = $('form.inputs.login');
-
-    /*form
-    .on( 'click', '.ui-checkbox', function(){
-
-        if( $( this ).hasClass('active') ){
-          $('.wz-login-remember-checkbox').attr( 'checked', true );
-        }else{
-          $('.wz-login-remember-checkbox').attr( 'checked', false );
-        }
-
-    })*/
 
     if( form.find('input[name="user"]').val() && form.find('input[name="password"]').val() ){
 
@@ -598,16 +565,19 @@ var login = function(){
 
         type    : 'post',
         url     : 'https://www.inevio.com/login',
-
         data    : form.serialize(),
         success : function( data ){
 
+          console.log(data);
           if( data.state === 'CORRECT' ){
 
-            window.location = _server('');
+            //window.location = _server('');
+            console.log('correct');
+            //showLaunchpad();
 
           }else{
             //alert( wzLang.login.error );
+            console.log('error');
           }
 
         }
@@ -615,9 +585,5 @@ var login = function(){
       });
 
     }
-
-    /*if( window.devicePixelRatio && window.devicePixelRatio > 1 ){
-        $.post( _server('') + 'pixel', { pixelRatio : window.devicePixelRatio } );
-    }*/
-
+    
 };
