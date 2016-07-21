@@ -488,3 +488,223 @@
   }
 
 }
+
+
+.animated{
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  transform: translateZ(0);
+}
+
+.center-vertical{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dashboard-container{
+  width: ~'calc(100% - 32px)';
+  height: ~'calc(100% - 72px)';
+  margin: 12px auto;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: translate3d(0,100%,0);
+}
+
+.apps-container{
+  width: 100%;
+  height: 100%;
+}
+
+.app{
+  width: 100%;
+  height: 31%;
+  margin-bottom: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  opacity: 0;
+}
+
+.app .app-logo{
+  width: 194px;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.app .app-logo figure{
+  display: inline-block;
+}
+
+.app .app-divider{
+  width: 1px;
+  height: 128px;
+  float: left;
+}
+
+.app .app-name{
+  width: ~'calc(100% - 196px)';
+  font-family: Lato;
+  font-size: 31px;
+  font-weight: bold;
+  float: left;
+  text-align: center;
+}
+
+.app.files{
+  background-color: #fff;
+}
+
+.app.files .app-logo figure{
+  width: 128px;
+  height: 100px;
+  background-image: url('@static/folder.png');
+  background-size: 128px 100px;
+}
+
+.app.files .app-divider{
+  background-color: #e5e9ea;
+}
+
+.app.files .app-name{
+  color: #545f65;
+}
+
+.app.chat{
+  background-color: #17acf1;
+}
+
+.app.chat .app-logo figure{
+  width: 85px;
+  height: 84px;
+  background-size: 85px 84px;
+  background-image: url('@static/chats.png');
+}
+
+.app.chat .app-divider{
+  background-color: #8bd5f8;
+}
+
+.app.chat .app-name{
+  color: #ffffff;
+}
+
+.app.cosmos{
+  background-color: black;
+}
+
+.app.cosmos .app-logo figure{
+  width: 85px;
+  height: 84px;
+  background-size: 85px 84px;
+  background-image: url('@static/chats.png');
+}
+
+.app.cosmos .app-divider{
+  background-color: #ffffff;
+}
+
+.app.cosmos .app-name{
+  color: #ffffff;
+}
+
+.app:last-child{
+  margin-bottom: 0px;
+}
+
+.footer{
+  width: 100%;
+  height: 48px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+.footer-content{
+  width: ~'calc(100% - 70px)';
+  height: 34px;
+  margin: 0px auto;
+}
+
+.footer-content .back{
+  width: 24px;
+  height: 20px;
+  background-size: 24px 20px;
+  background-image: url('@static/back2.png');
+  float: left;
+}
+
+.footer-content .inevio-logo-container{
+  width: ~'calc(100% - 48px)';
+  height: 34px;
+  text-align: center;
+  float: left;
+}
+
+.footer-content .inevio-logo{
+  width: 30px;
+  height: 34px;
+  background-size: 30px 34px;
+  background-image: url('@static/gema.png');
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-content .multitask{
+  width: 22px;
+  height: 20px;
+  margin-left: 2px;
+  background-size: 22px 20px;
+  background-image: url('@static/multitask.png');
+  float: left;
+}
+
+@media all and (max-width: 359px) {
+
+  .app .app-logo{
+    width: 155px;
+  }
+
+  .app .app-divider{
+    height: 90px;
+  }
+
+  .app .app-name{
+    width: ~'calc(100% - 157px)';
+    font-size: 27px;
+  }
+
+  .app.files .app-logo figure{
+    width: 107px;
+    height: 83px;
+    background-size: cover;
+  }
+  .app.chat .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+  .app.cosmos .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+
+  .footer-content{
+    width: ~'calc(100% - 100px)';
+  }
+
+}

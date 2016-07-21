@@ -1,7 +1,6 @@
 var win = $('body');
 var contentContainer = $('.content-container');
 var bodyWidth = win.css('width');
-//var initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
 var initialMarginTopLogo = parseInt( $('.content-container').css('margin-top') ) || parseInt( $('.content-container').css('top') ) ;
 var initialTopLogo = parseInt( $('.login-screen .inevio-logo.dark').css('top') );
 var initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
@@ -30,7 +29,6 @@ if( parseInt( win.css('width') ) < 360 ){
 
 var createCache = function(){
 
-  //initialYlogo = parseInt( $('.login-screen .inevio-logo.white').css('transform').split(',')[5] );
   initialMarginTopLogo = parseInt( $('.content-container').css('margin-top') ) || parseInt( $('.content-container').css('top') );
   initialTopLogo = parseInt( $('.login-screen .inevio-logo.dark').css('top') );
   initialMarginRightBtn = $('.login-buttons .accept').css('margin-right');
@@ -573,6 +571,9 @@ var login = function(){
 
             //window.location = _server('');
             console.log('correct');
+            $('.dashboard-container').transition({
+              'x' : 0
+            }, 500);
             //showLaunchpad();
 
           }else{
@@ -585,5 +586,5 @@ var login = function(){
       });
 
     }
-    
+
 };
