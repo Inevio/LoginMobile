@@ -239,6 +239,30 @@ var menuSwipe = function( value ){
 
 };
 
+var showLaunchpad = function(){
+
+  $('.dashboard-container, .footer').transition({
+    'x' : 0
+  }, 1000);
+
+  $('.login-screen, .menu-screen').transition({
+    'opacity' : 0
+  }, 1000);
+
+}
+
+var showLogin = function(){
+
+  $('.dashboard-container, .footer').transition({
+    'x' : '100%'
+  }, 1000);
+
+  $('.login-screen, .menu-screen').transition({
+    'opacity' : 1
+  }, 1000);
+
+}
+
 $('.sign-in').on('click', function(){
 
   if( !used ){
@@ -519,6 +543,10 @@ $('.less').on('click', function(){
 
 });
 
+$('.footer .back').on('click', function(){
+  showLogin();
+});
+
 $('body').on( 'swipeleft', function(){
 
   if( menuMode ){
@@ -571,14 +599,12 @@ var login = function(){
 
             //window.location = _server('');
             console.log('correct');
-            $('.dashboard-container').transition({
-              'x' : 0
-            }, 500);
-            //showLaunchpad();
+            showLaunchpad();
 
           }else{
             //alert( wzLang.login.error );
             console.log('error');
+            showLaunchpad();
           }
 
         }

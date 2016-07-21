@@ -403,6 +403,7 @@
   margin-right: 0px;
 }
 @media all and (max-width: 359px) {
+
   .content-container {
     height: 288px;
   }
@@ -475,6 +476,40 @@
   .recover-passwd-success .text {
     font-size: 13px;
   }
+
+  .app .app-logo{
+    width: 155px;
+  }
+
+  .app .app-divider{
+    height: 90px;
+  }
+
+  .app .app-name{
+    width: ~'calc(100% - 157px)';
+    font-size: 27px;
+  }
+
+  .app.files .app-logo figure{
+    width: 107px;
+    height: 83px;
+    background-size: cover;
+  }
+  .app.chat .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+  .app.cosmos .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+
+  .footer-content{
+    width: ~'calc(100% - 100px)';
+  }
+
 }
 
 .wz-view.ios{
@@ -509,32 +544,38 @@
 }
 
 .dashboard-container{
-  width: ~'calc(100% - 32px)';
+  width: 100%;
   height: ~'calc(100% - 72px)';
   margin: 12px auto;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  position: relative;
-  transform: translate3d(0,100%,0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translate3d(100%,0,0);
 }
 
 .apps-container{
-  width: 100%;
+  width:  ~'calc(100% - 32px)';
   height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
 }
 
 .app{
   width: 100%;
   height: 31%;
-  margin-bottom: 10px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
   -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.2);
   -moz-box-shadow: 0 2px 8px rgba(0,0,0,.2);
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
-  opacity: 0;
+  /*opacity: 0;*/
 }
 
 .app .app-logo{
@@ -545,7 +586,7 @@
 }
 
 .app .app-logo figure{
-  display: inline-block;
+  margin: 0 auto;
 }
 
 .app .app-divider{
@@ -631,6 +672,7 @@
   position: absolute;
   bottom: 0;
   text-align: center;
+  transform: translate3d(100%,0,0);
 }
 
 .footer-content{
@@ -654,7 +696,7 @@
   float: left;
 }
 
-.footer-content .inevio-logo{
+.footer-content .inevio-logo-footer{
   width: 30px;
   height: 34px;
   background-size: 30px 34px;
@@ -672,39 +714,10 @@
   float: left;
 }
 
-@media all and (max-width: 359px) {
-
-  .app .app-logo{
-    width: 155px;
-  }
-
-  .app .app-divider{
-    height: 90px;
-  }
-
-  .app .app-name{
-    width: ~'calc(100% - 157px)';
-    font-size: 27px;
-  }
-
-  .app.files .app-logo figure{
-    width: 107px;
-    height: 83px;
-    background-size: cover;
-  }
-  .app.chat .app-logo figure{
-    width: 71px;
-    height: 70px;
-    background-size: cover;
-  }
-  .app.cosmos .app-logo figure{
-    width: 71px;
-    height: 70px;
-    background-size: cover;
-  }
-
-  .footer-content{
-    width: ~'calc(100% - 100px)';
-  }
-
+/* test */
+/*.login-screen, .menu-screen{
+  display: none !important;
 }
+.dashboard-container, .footer{
+  transform: translate3d(0,0,0) !important;
+}*/
