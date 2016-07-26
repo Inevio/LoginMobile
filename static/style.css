@@ -87,23 +87,7 @@
   max-width: 80%;
   top: 99px;
 }
-.animated {
-  /*transform: translate3d(0,0,0);
-  -webkit-transform: translate3d(0,0,0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);*/
 
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  -moz-perspective: 1000;
-  -ms-perspective: 1000;
-  perspective: 1000;
-}
 .login-buttons {
   margin: 0px auto 0 auto;
   width: 314px;
@@ -374,18 +358,18 @@
   max-width: 80%;
   margin: 0 auto 0 auto;
 }
-.menu-screen .footer {
+.menu-screen .footer-menu {
   height: 72px;
   position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
-.menu-screen .footer .bullets {
+.menu-screen .footer-menu .bullets {
   margin-top: 30px;
   display: inline-block;
 }
-.menu-screen .footer .bullet {
+.menu-screen .footer-menu .bullet {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -394,12 +378,12 @@
   margin-right: 12px;
   cursor: pointer;
 }
-.menu-screen .footer .bullet.active {
+.menu-screen .footer-menu .bullet.active {
   border: 2px solid #889399;
   background-color: #889399;
   cursor: default;
 }
-.menu-screen .footer .bullet:last-child {
+.menu-screen .footer-menu .bullet:last-child {
   margin-right: 0px;
 }
 @media all and (max-width: 359px) {
@@ -555,6 +539,7 @@
   left: 0;
   right: 0;
   transform: translate3d(100%,0,0);
+  display: none;
 }
 
 .apps-container{
@@ -673,6 +658,7 @@
   bottom: 0;
   text-align: center;
   transform: translate3d(100%,0,0);
+  display: none;
 }
 
 .footer-content{

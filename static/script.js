@@ -241,13 +241,15 @@ var menuSwipe = function( value ){
 
 var showLaunchpad = function(){
 
-  $('.dashboard-container, .footer').transition({
+  $('.dashboard-container, .footer').show().transition({
     'x' : 0
   }, 1000);
 
   $('.login-screen, .menu-screen').transition({
     'opacity' : 0
-  }, 1000);
+  }, 1000, function(){
+    $(this).hide();
+  });
 
 }
 
@@ -255,9 +257,11 @@ var showLogin = function(){
 
   $('.dashboard-container, .footer').transition({
     'x' : '100%'
-  }, 1000);
+  }, 1000, function(){
+    $(this).hide();
+  });
 
-  $('.login-screen, .menu-screen').transition({
+  $('.login-screen, .menu-screen').show().transition({
     'opacity' : 1
   }, 1000);
 
