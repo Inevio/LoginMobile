@@ -386,128 +386,6 @@
 .menu-screen .footer-menu .bullet:last-child {
   margin-right: 0px;
 }
-@media all and (max-width: 359px) {
-
-  .content-container {
-    height: 288px;
-  }
-  .inevio-logo {
-    width: 215px;
-    height: 42px;
-    background-size: cover;
-    top: 24px;
-  }
-  .login-buttons,
-  .inputs {
-    width: 266px;
-  }
-  .inputs .input {
-    height: 48px;
-  }
-  .inputs.login {
-    margin-top: 78px;
-  }
-  .inputs.register {
-    margin-top: 68px;
-  }
-  .inputs .username,
-  .inputs .email {
-    margin-bottom: 30px;
-  }
-  .inputs input {
-    font-size: 17px;
-    margin: 15px 32px 0px 32px;
-  }
-  .slogan {
-    font-size: 15px;
-    line-height: 23px;
-    margin: 0px auto 0 auto;
-  }
-  .login-buttons .ui-btn {
-    width: 121px;
-    height: 49px;
-  }
-  .login-buttons .ui-btn span {
-    font-size: 17px;
-    line-height: 18px;
-  }
-  .login-buttons .ui-btn.sign-up {
-    margin-right: 18px;
-  }
-  .passwd-recover {
-    font-size: 13px;
-    top: 55px;
-  }
-  .menu-screen .menu-content-1 .menu-image figure {
-    width: 151px;
-    height: 186px;
-    background-size: cover;
-  }
-  .menu-screen .title {
-    font-size: 17px;
-  }
-  .menu-screen .text {
-    font-size: 13px;
-    line-height: 1.2em;
-  }
-  .recover-passwd-success figure {
-    margin-bottom: 30px;
-    margin-top: 20px;
-  }
-  .recover-passwd-success .title {
-    font-size: 15px;
-  }
-  .recover-passwd-success .text {
-    font-size: 13px;
-  }
-
-  .app .app-logo{
-    width: 155px;
-  }
-
-  .app .app-divider{
-    height: 90px;
-  }
-
-  .app .app-name{
-    width: ~'calc(100% - 157px)';
-    font-size: 27px;
-  }
-
-  .app.files .app-logo figure{
-    width: 107px;
-    height: 83px;
-    background-size: cover;
-  }
-  .app.chat .app-logo figure{
-    width: 71px;
-    height: 70px;
-    background-size: cover;
-  }
-  .app.cosmos .app-logo figure{
-    width: 71px;
-    height: 70px;
-    background-size: cover;
-  }
-
-  .footer-content{
-    width: ~'calc(100% - 100px)';
-  }
-
-}
-
-.wz-view.ios{
-
-  .back-button{
-    top: 28px;
-  }
-
-  .menu-screen .header{
-    margin-top: 10px;
-  }
-
-}
-
 
 .animated{
   -webkit-backface-visibility: hidden;
@@ -698,6 +576,133 @@
   background-size: 22px 20px;
   background-image: url('@static/multitask.png');
   float: left;
+}
+
+@media all and (max-width: 359px) {
+
+  .content-container {
+    height: 288px;
+  }
+  .inevio-logo {
+    width: 215px;
+    height: 42px;
+    background-size: cover;
+    top: 24px;
+  }
+  .login-buttons,
+  .inputs {
+    width: 266px;
+  }
+  .inputs .input {
+    height: 48px;
+  }
+  .inputs.login {
+    margin-top: 78px;
+  }
+  .inputs.register {
+    margin-top: 68px;
+  }
+  .inputs .username,
+  .inputs .email {
+    margin-bottom: 30px;
+  }
+  .inputs input {
+    font-size: 17px;
+    margin: 15px 32px 0px 32px;
+  }
+  .slogan {
+    font-size: 15px;
+    line-height: 23px;
+    margin: 0px auto 0 auto;
+  }
+  .login-buttons .ui-btn {
+    width: 121px;
+    height: 49px;
+  }
+  .login-buttons .ui-btn span {
+    font-size: 17px;
+    line-height: 18px;
+  }
+  .login-buttons .ui-btn.sign-up {
+    margin-right: 18px;
+  }
+  .passwd-recover {
+    font-size: 13px;
+    top: 55px;
+  }
+  .menu-screen .menu-content-1 .menu-image figure {
+    width: 151px;
+    height: 186px;
+    background-size: cover;
+  }
+  .menu-screen .title {
+    font-size: 17px;
+  }
+  .menu-screen .text {
+    font-size: 13px;
+    line-height: 1.2em;
+  }
+  .recover-passwd-success figure {
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  .recover-passwd-success .title {
+    font-size: 15px;
+  }
+  .recover-passwd-success .text {
+    font-size: 13px;
+  }
+
+  .app .app-logo{
+    width: 155px;
+  }
+
+  .app .app-divider{
+    height: 90px;
+  }
+
+  .app .app-name{
+    width: ~'calc(100% - 157px)';
+    font-size: 27px;
+  }
+
+  .app.files .app-logo figure{
+    width: 107px;
+    height: 83px;
+    background-size: cover;
+  }
+  .app.chat .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+  .app.cosmos .app-logo figure{
+    width: 71px;
+    height: 70px;
+    background-size: cover;
+  }
+
+  .footer-content{
+    width: ~'calc(100% - 100px)';
+  }
+
+}
+
+.wz-view.ios{
+
+  .back-button{
+    top: 28px;
+  }
+
+  .menu-screen .header{
+    margin-top: 10px;
+  }
+
+  .dashboard-container{
+    height: ~'calc(100% - 82px)';
+    top: 10px;
+  }
+
 }
 
 /* test */
