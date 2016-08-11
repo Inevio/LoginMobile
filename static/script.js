@@ -241,6 +241,8 @@ var menuSwipe = function( value ){
 
 var showLaunchpad = function(){
 
+  startKernel();
+
   $('.dashboard-container, .footer').show().transition({
     'x' : 0
   }, 1000);
@@ -608,7 +610,7 @@ var login = function(){
           }else{
             //alert( wzLang.login.error );
             console.log('error');
-            showLaunchpad();
+            //showLaunchpad();
           }
 
         }
