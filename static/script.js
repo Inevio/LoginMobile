@@ -631,9 +631,13 @@ $('body').on( 'swipeleft', function(){
 
 })
 
-.on('click', '.app.loaded' , function(){
+.on('click', '.app.loaded', function(){
 
-  console.log('click');
+  fileSystem.launchApp( $(this).data().id, function(){
+
+    console.log(arguments);
+
+  });
 
 });
 
