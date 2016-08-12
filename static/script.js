@@ -17,6 +17,7 @@ var lowResMode = false;
 var used = false;
 var transitioning = false;
 var smallLogoTop = 20;
+var appPrototype = $('.app.wz-prototype');
 
 if( device && device.platform == "iOS" ){
   win.addClass('ios');
@@ -268,6 +269,23 @@ var showLaunchpad = function( disableAnimation ){
 
     /* Devuelve un listado con todas las apps disponibles para el usuario */
     // TO DO -> Insertar en el DOM y dibujarla como no disponible todavía
+    var appList = [];
+
+    apps.forEach( function( item ){
+
+      var clonedItem = appPrototype.clone();
+      clonedItem.removeClass('wz-prototype');
+      clonedItem.find('.app-name').text( item.name );
+      clonedItem.addClass( 'app-' + item.id );
+      if( item.name = "Files" ){
+        clonedItem.addClass('files');
+      }
+      clonedItem.data( item );
+      appList.push(clonedItem);
+
+    });
+
+    $('.apps-container').append( appList );
 
   });
 
@@ -275,6 +293,7 @@ var showLaunchpad = function( disableAnimation ){
 
     /* Devuelve el ID de una app cuando ya está disponible para ser ejecutada */
     // TO DO -> Modificar el DOM para que salga como disponible
+    $('.app-' + id ).addClass( 'loaded' );
 
   });
 
@@ -609,6 +628,12 @@ $('body').on( 'swipeleft', function(){
   if( menuMode ){
     $('.less').click();
   }
+
+})
+
+.on('click', '.app.loaded' , function(){
+
+  console.log('click');
 
 });
 
