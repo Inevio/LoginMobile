@@ -1,3 +1,4 @@
+
 var win = $('body');
 var contentContainer = $('.content-container');
 var bodyWidth = win.css('width');
@@ -18,7 +19,6 @@ var transitioning = false;
 var smallLogoTop = 20;
 
 if( device && device.platform == "iOS" ){
-  console.log( device );
   win.addClass('ios');
   smallLogoTop = 30;
 }
@@ -188,7 +188,7 @@ var menuSwipe = function( value ){
         menuStage++;
 
         $('.menu-content.active').transition({
-          'left' : '-100%'
+          left : '-100%'
         },500,function(){
 
           $(this).removeClass('active');
@@ -200,7 +200,7 @@ var menuSwipe = function( value ){
         });
 
         $('.menu-content-' + menuStage).show().transition({
-          'left' : '0'
+          left : '0'
         },500,function(){
           $(this).addClass('active');
         });
@@ -214,7 +214,7 @@ var menuSwipe = function( value ){
         transitioning = true;
         menuStage--;
         $('.menu-content.active').transition({
-          'left' : '100%'
+          left : '100%'
         },500,function(){
 
           $(this).removeClass('active');
@@ -226,7 +226,7 @@ var menuSwipe = function( value ){
         });
 
         $('.menu-content-' + menuStage).show().transition({
-           'left' : '0'
+           left : '0'
          },500,function(){
            $(this).addClass('active');
          })
@@ -241,22 +241,41 @@ var menuSwipe = function( value ){
 
 var showLaunchpad = function( disableAnimation ){
 
-  startKernel();
+  var kernelAPI = startKernel();
 
   if( disableAnimation ){
+
     $('.dashboard-container, .footer').css({ display : 'block', x : 0 });
     $('.login-screen, .menu-screen').css({ display : 'none', opacity : 0 });
-    return;
+
+  }else{
+
+    $('.dashboard-container, .footer').show().transition({
+      'x' : 0
+    }, 1000);
+
+    $('.login-screen, .menu-screen').transition({
+      'opacity' : 0
+    }, 1000, function(){
+      $(this).hide();
+    });
+
   }
 
-  $('.dashboard-container, .footer').show().transition({
-    'x' : 0
-  }, 1000);
+  console.log( kernelAPI );
 
-  $('.login-screen, .menu-screen').transition({
-    'opacity' : 0
-  }, 1000, function(){
-    $(this).hide();
+  kernelAPI.on( 'appsList', function( apps ){
+
+    /* Devuelve un listado con todas las apps disponibles para el usuario */
+    // TO DO -> Insertar en el DOM y dibujarla como no disponible todavía
+
+  });
+
+  kernelAPI.on( 'appPreloaded', function( id ){
+
+    /* Devuelve el ID de una app cuando ya está disponible para ser ejecutada */
+    // TO DO -> Modificar el DOM para que salga como disponible
+
   });
 
 }
