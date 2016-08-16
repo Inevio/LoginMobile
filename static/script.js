@@ -242,7 +242,7 @@ var menuSwipe = function( value ){
 
 var showLaunchpad = function( disableAnimation ){
 
-  var kernelAPI = startKernel();
+  var kernelAPI = startKernel( 'mobile', window.deviceSession.cookie );
 
   if( disableAnimation ){
 
@@ -281,6 +281,7 @@ var showLaunchpad = function( disableAnimation ){
         clonedItem.addClass('files');
       }
       clonedItem.data( item );
+      clonedItem.find('.app-logo figure').css('background-image','url(https://static.inevio.com/app/' + item.id + '/bigicon@2x.png)');
       appList.push(clonedItem);
 
     });
@@ -683,7 +684,7 @@ var login = function(){
 
 };
 
-if( window.logged ){
+if( window.deviceSession.status === 'LOGGED' ){
   showLaunchpad( true );
 }else{
   showLogin( true );

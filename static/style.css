@@ -478,8 +478,9 @@
 .app.files .app-logo figure{
   width: 128px;
   height: 100px;
-  background-image: url('@static/folder.png');
-  background-size: 128px 100px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100px 100px
 }
 
 .app.files .app-divider{
