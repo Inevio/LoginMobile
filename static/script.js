@@ -263,7 +263,7 @@ var showLaunchpad = function( disableAnimation ){
 
   }
 
-  console.log( kernelAPI );
+  console.log( kernelAPI.system.user() );
 
   kernelAPI.on( 'appsList', function( apps ){
 
@@ -294,6 +294,19 @@ var showLaunchpad = function( disableAnimation ){
     /* Devuelve el ID de una app cuando ya está disponible para ser ejecutada */
     // TO DO -> Modificar el DOM para que salga como disponible
     $('.app-' + id ).addClass( 'loaded' );
+
+  });
+
+  kernelAPI.on( 'changeWallpaper', function( counter ){
+
+    var url = 'https://static.inevio.com/wallpaper/' + '2880' + '?u=' + kernelAPI.system.user().id + '&c=' + counter;
+
+    $('#AppContent').css({
+
+      'background-image' : 'url(' + url + ')',
+      'background-size' : 'cover'
+
+    });
 
   });
 
