@@ -424,9 +424,10 @@
   width:  ~'calc(100% - 32px)';
   height: 100%;
   margin: 0 auto;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  overflow-y: auto;
 }
 
 .app{
@@ -439,6 +440,7 @@
   -moz-box-shadow: 0 2px 8px rgba(0,0,0,.2);
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
   opacity: 0.5;
+  flex-shrink: 0;
 }
 
 .app.loaded{
