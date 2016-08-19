@@ -424,7 +424,7 @@
   width:  ~'calc(100% - 32px)';
   height: 100%;
   margin: 0 auto;
-  display: inline-flex;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   overflow-y: auto;
