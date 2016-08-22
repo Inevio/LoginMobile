@@ -247,7 +247,7 @@ var showLaunchpad = function( disableAnimation ){
   if( disableAnimation ){
 
     $('.dashboard-container, .footer').css({ display : 'block', x : 0 });
-    $('.login-screen, .menu-screen').css({ display : 'none', opacity : 0 });
+    $('.login-screen').css({ display : 'none', opacity : 0 });
 
   }else{
 
@@ -321,7 +321,7 @@ var showLogin = function(){
     $(this).hide();
   });
 
-  $('.login-screen, .menu-screen').show().transition({
+  $('.login-screen').show().transition({
     'opacity' : 1
   }, 1000);
 
